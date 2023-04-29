@@ -86,7 +86,6 @@ a {
 .nav_list {
   display: flex;
   column-gap: 40px;
-  margin-right: 50px;
 }
 .hamburger {
   display: none;
@@ -446,7 +445,7 @@ a {
     row-gap: 100px;
   }
   .nav_link {
-    font-size: 20px;
+    font-size: 12px;
   }
   .hamburger {
     display: block;
