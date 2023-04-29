@@ -403,7 +403,6 @@ a {
 
 @media (max-width: 450px) {
   .card {
-    width: 270px !important;
     padding: 20px !important;
   }
   .main-tempvault {
@@ -497,7 +496,7 @@ a {
     color: #ffffff;
   }
   .feature-heading {
-    font-size: 36px;
+    font-size: 35px;
     line-height: 40px;
     margin-bottom: 30px;
   }
