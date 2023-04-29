@@ -1,0 +1,11 @@
+
+.linkedin-svg path,
+.linkedin-svg circle {
+  fill: #1976D2;
+  transition: fill 0.2s ease-in-out;
+}
+
+.linkedin-svg:hover path,
+.linkedin-svg:hover circle {
+  fill: #ffffff;
+}
