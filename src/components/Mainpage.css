@@ -43,7 +43,6 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
   height: 100px;
 }
 .logo {
@@ -165,51 +164,7 @@ a {
   letter-spacing: 1px;
   color: #cccccc;
 }
-.my-element {
-  position: absolute;
-  left: -225px;
-  top: -263px;
-  width: 752px;
-  height: 753px;
-  background: rgba(159, 37, 255, 0.3);
-  filter: blur(300px);
-  animation-name: my-animation;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-}
 
-@keyframes my-animation {
-  0% {
-    background-color: rgba(159, 37, 255, 0.28);
-  }
-  20% {
-    background-color: rgba(159, 37, 255, 0.25);
-  }
-  40% {
-    background-color: rgba(159, 37, 255, 0.22);
-  }
-  60% {
-    background-color: rgba(159, 37, 255, 0.25);
-  }
-  80% {
-    background-color: rgba(159, 37, 255, 0.28);
-  }
-  100% {
-    background-color: rgba(159, 37, 255, 0.25);
-  }
-}
-.my-element-2 {
-  position: absolute;
-  width: 489.85px;
-  height: 489.85px;
-  left: 981.51px;
-  top: 382.68px;
-  background: rgba(159, 37, 255, 0.3);
-  filter: blur(300px);
-  animation-name: my-animation;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-}
 
 .getstarted-button {
   font-size: 16px;
@@ -452,12 +407,12 @@ a {
     padding: 20px !important;
   }
   .main-tempvault {
-    font-size: 50px;
+    font-size: 40px;
   }
 
   .sub-tempvault {
-    font-size: 16px;
-    line-height: 25px;
+    font-size: 12px;
+    line-height: 20px;
   }
 }
 
