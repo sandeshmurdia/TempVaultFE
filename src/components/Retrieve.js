@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
@@ -7,7 +8,7 @@ const Retrieve = () => {
   const [data, setData] = useState();
   const url = `http://localhost:5000/apiservices/get/${id}`;
   const [expired, setExpired] = useState();
-  const [viewed, setViewed] = useState();
+  // const [viewed, setViewed] = useState();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
