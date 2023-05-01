@@ -20,7 +20,7 @@ const Retrieve = () => {
     await axios
       .get(url)
       .then((res) => {
-        console.log(res.data.data);
+        console.log(res.data);
         setData(res.data)
         if (res.data.expirationTime < Date.now()) {
           setExpired(true);
@@ -50,7 +50,7 @@ const Retrieve = () => {
       <div class="container-ret">
         <div class="col1">
           <div className="text-view">
-          {expired && data ? <p className="linkexp">Link is expired!</p> : <p className="linkexp">{data}</p>}
+          {expired && data ? <p className="linkexp">Link is expired!</p> : <p className="linkexp">{data.data}</p>}
 
           </div>
         </div>
