@@ -37,6 +37,15 @@ body {
   margin-top: 10%;
 }
 
+.linkexp{
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: #cccccc;
+}
+
 .col1 {
   margin-top: 2%;
 }
@@ -69,6 +78,10 @@ body {
     height: 400px;
     overflow-y: auto;
     overflow-x: auto;
+  }
+
+  .linkexp{
+    font-size: 20px;
   }
 }
 
@@ -165,6 +178,10 @@ body {
   }
   .timeleft {
     margin-right: 20px;
+  }
+  
+  .linkexp{
+    font-size: 16px;
   }
 }
 
