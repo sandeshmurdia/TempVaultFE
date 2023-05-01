@@ -35,10 +35,13 @@ function FileCreate() {
       .post(url, data)
       .then(() => {
         console.log("Success");
-        setSharedLink(`http://localhost:3000/download/text/${uuid}`);
+        setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
+        navigator.clipboard.writeText(sharedLink);
+        alert(`Link copied to clipboard: ${sharedLink}`);
         setText("");
       })
       .catch((err) => {
+        alert(`Failed`);
         console.log("Failed ", err);
       });
 
@@ -50,8 +53,7 @@ function FileCreate() {
   };
 
   const handleShareLink = () => {
-    navigator.clipboard.writeText(sharedLink);
-    alert(`Link copied to clipboard: ${sharedLink}`);
+
   };
 
   const handleContentChange = (value) => {
@@ -158,11 +160,9 @@ function FileCreate() {
               </button>
               {sharedLink && (
                 <div>
-                  <p>
-                    Link: <a href={sharedLink}>{sharedLink}</a>
+                  <p className="link">
+               <a href={sharedLink}>{sharedLink}</a>
                   </p>
-                  <p>Expires in {expirationDate}</p>
-                  <button onClick={handleShareLink}>Share Link</button>
                 </div>
               )}
             </div>
