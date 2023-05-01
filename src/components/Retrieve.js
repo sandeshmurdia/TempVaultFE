@@ -20,7 +20,7 @@ const Retrieve = () => {
     await axios
       .get(url)
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data.data);
         setData(res.data)
         if (res.data.expirationTime < Date.now()) {
           setExpired(true);
