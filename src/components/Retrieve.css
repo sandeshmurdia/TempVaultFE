@@ -8,6 +8,9 @@ body {
   height: 85vh;
   margin-top: 100px;
 }
+.share-link{
+  max-width: 300px;
+}
 
 .col1 {
   flex-basis: 50%;

@@ -151,7 +151,7 @@ function Mainpage() {
         {/*team */}
         <section id="contact"></section>
         <div className="contact">
-          <h1 className="ourteam">Our Team</h1>
+          <h1 className="ourteam">Developed By</h1>
           <div className="responsive-container-block container">
             <div className="responsive-container-block">
               <div className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container-about">
@@ -165,10 +165,10 @@ function Mainpage() {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
                   <div className="social-icons">
-                    <a href="https://www.twitter.com" target="_blank">
+                    <a href="https://www.linkedin.com/in/sa9desh" target="_blank">
                       <img height={22} width={22} src={linkedin} />
                     </a>
-                    <a href="https://www.twitter.com" target="_blank">
+                    <a href="https://github.com/sandeshmurdia" target="_blank">
                       <img
                         height={23}
                         width={23}
@@ -176,7 +176,7 @@ function Mainpage() {
                         src={github}
                       />
                     </a>
-                    <a href="https://www.twitter.com" target="_blank">
+                    <a href="https://www.instagram.com/sandeshmurdia" target="_blank">
                       <img
                         height={23}
                         width={23}
@@ -184,7 +184,7 @@ function Mainpage() {
                         src={instagram}
                       />
                     </a>
-                    <a href="https://www.twitter.com" target="_blank">
+                    <a href="mailto:sandeshmurdia123@gmail.com">
                       <img
                         height={24}
                         width={24}
@@ -206,10 +206,10 @@ function Mainpage() {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
                   <div className="social-icons">
-                    <a href="https://www.twitter.com" target="_blank">
+                    <a href="https://www.linkedin.com/in/chetan-lohkare-4b3007195" target="_blank">
                       <img height={22} width={22} src={linkedin} />
                     </a>
-                    <a href="https://www.twitter.com" target="_blank">
+                    <a href="https://github.com/chetan-187" target="_blank">
                       <img
                         height={23}
                         width={23}
@@ -217,7 +217,7 @@ function Mainpage() {
                         src={github}
                       />
                     </a>
-                    <a href="https://www.twitter.com" target="_blank">
+                    <a href="https://www.instagram.com/_chetan_187/" target="_blank">
                       <img
                         height={23}
                         width={23}

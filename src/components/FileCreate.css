@@ -29,12 +29,11 @@ body {
 }
 
 .column1 {
-  margin-top: 8% !important;
+  margin-top: 5% !important;
 }
 
 .column2,
 .column1 {
-  margin-top: 2%;
   display: inline-table;
 }
 
@@ -111,7 +110,14 @@ body {
 }
 
 .quill{
-  max-width: 600px;
+  margin-right: 20px;
+  width: 50vw;
+}
+
+@media screen and (max-width: 768px) {
+  .quill{
+    width: 88vw;
+  }
 }
 
 .generate-button {
@@ -260,7 +266,7 @@ body {
   height: 400px !important;
   color: #ffffff !important;
   background: rgba(204, 204, 204, 0.05);
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .ql-container {

@@ -7,7 +7,6 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 function FileCreate() {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-  const [text, setText] = useState("");
   const [expirationDate, setExpirationDate] = useState(5); // 5 mins
   const [sharedLink, setSharedLink] = useState(null);
   const [viewOnce, setViewOnce] = useState(false);
@@ -36,22 +35,18 @@ function FileCreate() {
         console.log("Success");
         setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
         navigator.clipboard.writeText(sharedLink);
-        alert(`Link copied to clipboard: ${sharedLink}`);
-        setText("");
+        alert(`Link copied to clipboard`);
+        setContent("");
       })
       .catch((err) => {
         alert(`Failed`);
         console.log("Failed ", err);
       });
-
-    // console.log(response);
   };
 
   const handleExpirationTimeChange = (event) => {
     setExpirationDate(event.target.value);
   };
-
-  const handleShareLink = () => {};
 
   const handleContentChange = (value) => {
     setContent(value);
@@ -158,7 +153,7 @@ function FileCreate() {
               {sharedLink && (
                 <div>
                   <p className="link">
-                    <a href={sharedLink}>{sharedLink}</a>
+                    <a href={sharedLink} className="expiration share-link">Your Link: <span style={{fontWeight: 300, color: "#3366CC"}}>tempvault.netlify.app/download/text/...</span></a>
                   </p>
                 </div>
               )}
