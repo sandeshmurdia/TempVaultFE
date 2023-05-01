@@ -8,7 +8,7 @@ body {
   height: 85vh;
   margin-top: 100px;
 }
-.share-link{
+.share-link {
   max-width: 300px;
 }
 
@@ -21,18 +21,24 @@ body {
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
-  line-height: 40px;
   letter-spacing: 1px;
   color: #cccccc;
 }
 .col1,
 .col2 {
   height: 50vh;
-  margin-top: 10%;
   margin-bottom: auto;
   margin-left: 50px;
   margin-right: 50px;
   padding: auto;
+}
+
+.col2 {
+  margin-top: 10%;
+}
+
+.col1 {
+  margin-top: 2%;
 }
 
 .col3 {
@@ -47,7 +53,32 @@ body {
   color: #cccccc;
 }
 
-.timeleft{
+.text-view {
+  background: rgba(204, 204, 204, 0.05);
+  width: 50vw;
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid white;
+}
+
+@media screen and (max-width: 1100px) {
+  .text-view {
+    width: 92vw;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .text-view{
+    width: 90vw;
+  }  
+}
+
+.timeleft {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
@@ -71,12 +102,15 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  border-bottom: 2px solid transparent; 
-  -webkit-border-image: linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%) 1; 
-  border-image: linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%) 1; 
+  border-bottom: 2px solid transparent;
+  -webkit-border-image: linear-gradient(
+      87.96deg,
+      #9f25ff 6.22%,
+      #2548ff 104.21%
+    )
+    1;
+  border-image: linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%) 1;
 }
-
-
 
 @media screen and (max-width: 1100px) {
   .col1,
@@ -101,10 +135,11 @@ body {
     height: 100px;
     font-size: 16px;
   }
-  .col2 ,.timeleft {
+  .col2,
+  .timeleft {
     font-size: 16px;
   }
-  .timeleft{
+  .timeleft {
     margin-right: 30px;
   }
 }
@@ -124,10 +159,29 @@ body {
     height: 50px;
     font-size: 12px;
   }
-  .col2, .timeleft {
+  .col2,
+  .timeleft {
     font-size: 12px;
   }
-  .timeleft{
+  .timeleft {
     margin-right: 20px;
   }
+}
+
+/* width */
+.text-view::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background: #000000;
+}
+
+/* Track */
+.text-view::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+/* Handle */
+.text-view::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 50px;
 }

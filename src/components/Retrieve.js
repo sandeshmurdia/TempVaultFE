@@ -21,6 +21,7 @@ const Retrieve = () => {
       .get(url)
       .then((res) => {
         console.log(res);
+        setData(res.data)
         if (res.data.expirationTime < Date.now()) {
           setExpired(true);
         } else if (!res.data.expirationTime && res.data.dataViewed === true) {
@@ -48,7 +49,10 @@ const Retrieve = () => {
       </header>
       <div class="container-ret">
         <div class="col1">
-          {expired && data ? <p>Link is expired!</p> : <p>sd</p>}
+          <div className="text-view">
+          {expired && data ? <p>Link is expired!</p> : <p>{data}</p>}
+
+          </div>
         </div>
         <div class="col2">
           Your data is encrypted using advanced encryption standards and stored
