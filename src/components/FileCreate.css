@@ -13,12 +13,21 @@ body {
 .column2 {
   flex: 1;
   height: 50vh;
-  margin-top: 10%;
   margin-bottom: auto;
   margin-left: 50px;
   margin-right: 50px;
   padding: auto;
   max-width: 650px;
+}
+
+.column1 {
+  margin-top: 8% !important;
+}
+
+.column2,
+.column1 {
+  margin-top: 2%;
+  display: inline-table;
 }
 
 .column3 {
@@ -29,9 +38,9 @@ body {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 30px;
-  margin-left: 50px;
+  margin-left: 30px;
   letter-spacing: 1px;
   color: #ffffff;
 }
@@ -39,12 +48,66 @@ body {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 44px;
+  font-size: 40px;
   letter-spacing: -0.065em;
   background: linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.expiration {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 30px;
+  align-items: center;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin-right: 15px;
+}
+
+#expiration-time {
+  width: 100px;
+  background: #000000;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  color: #ffffff;
+  margin-right: 30px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.functioning {
+  margin-top: 30px;
+}
+
+#view-once {
+  width: 15px;
+  height: 15px;
+  background: #000000;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+}
+
+.generate-button {
+  margin-top: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: #000000;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  color: #ffffff;
+  font-family: "Poppins";
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 600;
+  align-items: center;
+  letter-spacing: 2px;
 }
 
 @media screen and (max-width: 768px) {
@@ -53,17 +116,21 @@ body {
   .column3 {
     flex-basis: 100%;
   }
+  .column1 {
+    height: auto;
+    margin-bottom: 30px;
+  }
   .column3 {
     margin-left: 0px !important;
     height: 100px;
+    text-align: center;
   }
   .numberoflinksmain {
     margin-left: 0px !important;
-    text-align: center;
   }
 }
 
-ol {
+.list-work {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
@@ -75,7 +142,7 @@ ol {
   color: #cccccc;
 }
 
-h1 {
+.how-it {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
@@ -88,49 +155,55 @@ h1 {
 }
 
 @media screen and (max-width: 1100px) {
-  ol {
+  .list-work {
     font-size: 16px;
   }
-  h1 {
+  .how-it {
     font-size: 20px;
   }
   #logo {
-    margin-left: auto;
+    margin-left: 30px;
     margin-right: auto;
     font-size: 28px;
   }
   .column1,
   .column2 {
-    margin-top: 10%;
-    margin-bottom: auto;
     margin-left: 30px;
     margin-right: 30px;
     padding: auto;
   }
+  .column1 {
+    margin-top: 10%;
+  }
+  .column2 {
+    margin-top: 3%;
+  }
 
   .column3 {
-    padding: 30px;
     flex-basis: 100%;
     height: 50px;
+    bottom: 0;
+padding-top: 50px;
   }
   .numberoflinks {
-    font-size: 38px;
+    font-size: 32px;
   }
 
   .numberoflinksmain {
-    font-size: 20px;
+    font-size: 18px;
+    margin-left: 30px !important;
   }
 }
 
 @media screen and (max-width: 450px) {
-  ol {
+  .list-work {
     font-size: 12px;
   }
-  h1 {
+  .how-it {
     font-size: 16px;
   }
   #logo {
-    margin-left: auto;
+    margin-left: 20px;
     margin-right: auto;
     font-size: 24px;
   }
@@ -143,15 +216,100 @@ h1 {
     padding: auto;
   }
   .numberoflinks {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .column3 {
-    padding: 20px;
     height: 50px;
   }
 
   .numberoflinksmain {
-    font-size: 16px;
+    font-size: 14px;
+  margin-left: 20px !important;
+  }
+
+}
+
+.ql-editor {
+  height: 400px !important;
+  color: #ffffff !important;
+  background: rgba(204, 204, 204, 0.05);
+}
+
+.ql-container {
+  border-radius: 0px 0px 8px 8px;
+}
+
+.ql-toolbar {
+  border-radius: 8px 8px 0px 0px;
+}
+
+@media screen and (max-width: 576px) {
+  .ql-editor p {
+    font-size: 12px !important;
+  }
+
+  .ql-editor h1 {
+    font-size: 20px !important;
+  }
+
+  .ql-editor h2 {
+    font-size: 18px !important;
+  }
+
+  .ql-editor h3 {
+    font-size: 16px !important;
+  }
+}
+@media screen and (max-width: 992px) {
+  .ql-editor p {
+    font-size: 14px !important;
+  }
+
+  .ql-editor h1 {
+    font-size: 28px !important;
+  }
+
+  .ql-editor h2 {
+    font-size: 24px !important;
+  }
+
+  .ql-editor h3 {
+    font-size: 20px !important;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .ql-editor p {
+    font-size: 16px !important;
+  }
+
+  .ql-editor h1 {
+    font-size: 36px !important;
+  }
+
+  .ql-editor h2 {
+    font-size: 32px !important;
+  }
+
+  .ql-editor h3 {
+    font-size: 28px !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .ql-editor p {
+    font-size: 18px !important;
+  }
+
+  .ql-editor h1 {
+    font-size: 48px !important;
+  }
+
+  .ql-editor h2 {
+    font-size: 40px !important;
+  }
+
+  .ql-editor h3 {
+    font-size: 36px !important;
   }
 }
