@@ -135,6 +135,7 @@ body {
   font-size: 12px;
   font-weight: 600;
   align-items: center;
+  cursor: pointer;
   letter-spacing: 2px;
 }
 

@@ -15,8 +15,6 @@ const Retrieve = () => {
     getData();
   }, []);
 
-  
-
   const getData = async () => {
     setLoading(true);
     await axios
@@ -36,40 +34,22 @@ const Retrieve = () => {
     setLoading(false);
   };
 
-  // const display = () => {
-  //   if (loading) return <div>{loading && <span>Loading...</span>}</div>;
-  //   else {
-  //     return (
-  //       <div>
-  //         {expired && data ? <p>Link is expired!</p> : <p>{data.cipherText}</p>}
-  //       </div>
-  //     );
-  //   }
-  // };
-
   return (
-    // <div>
-
-    //     <div>
-    //         {display()}
-    //     </div>
-    // </div>
     <>
       <header className="header">
         <div className="header_content">
-            <Link to="/">
-          <a className="logo" id="logo">
-            TempVault
-          </a>
+          <Link to="/">
+            <a className="logo" id="logo">
+              TempVault
+            </a>
           </Link>
-          <div className="timeleft">
-          Time Left 4:59
+          <div className="timeleft">Time Left 10:04:59</div>
         </div>
-        </div>
-   
       </header>
       <div class="container-ret">
-        <div class="col1">Column 1</div>
+        <div class="col1">
+          {expired && data ? <p>Link is expired!</p> : <p>sd</p>}
+        </div>
         <div class="col2">
           Your data is encrypted using advanced encryption standards and stored
           securely on our server. We take your privacy and security seriously
@@ -77,7 +57,10 @@ const Retrieve = () => {
         </div>
         <div class="col3">
           Start sharing your data securely and efficiently with Temp Files.
-          <Link to="/senddata"> <span className="try-it"> Try it now!</span></Link>
+          <Link to="/senddata">
+            {" "}
+            <span className="try-it"> Try it now!</span>
+          </Link>
         </div>
       </div>
     </>
