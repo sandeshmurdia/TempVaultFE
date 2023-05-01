@@ -38,27 +38,42 @@ body {
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
-  line-height: 40px;
+  line-height: 30px;
   text-align: center;
   letter-spacing: 1px;
   color: #cccccc;
 }
 
-.try-it {
-    text-decoration-line: underline;
+.timeleft{
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #cccccc;
+  margin-right: 50px;
+}
 
-    font-family: "Poppins";
+.try-it {
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 40px;
   align-items: center;
   letter-spacing: 1px;
-  background: linear-gradient(154.93deg, #ff26f7 29.81%, #b249f8 63.92%);
+  background: linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  border-bottom: 2px solid transparent; 
+  -webkit-border-image: linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%) 1; 
+  border-image: linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%) 1; 
 }
+
+
 
 @media screen and (max-width: 1100px) {
   .col1,
@@ -83,8 +98,11 @@ body {
     height: 100px;
     font-size: 16px;
   }
-  .col2 {
+  .col2 ,.timeleft {
     font-size: 16px;
+  }
+  .timeleft{
+    margin-right: 30px;
   }
 }
 
@@ -103,7 +121,10 @@ body {
     height: 50px;
     font-size: 12px;
   }
-  .col2 {
+  .col2, .timeleft {
     font-size: 12px;
+  }
+  .timeleft{
+    margin-right: 20px;
   }
 }

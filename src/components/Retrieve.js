@@ -6,7 +6,7 @@ import "./Retrieve.css";
 const Retrieve = () => {
   const { id } = useParams();
   const [data, setData] = useState();
-  const url = `http://localhost:5000/apiservices/get/${id}`;
+  const url = `https://tempvault-services.vercel.app/apiservices/get/${id}`;
   const [expired, setExpired] = useState();
   // const [viewed, setViewed] = useState();
   const [loading, setLoading] = useState(true);
@@ -20,6 +20,7 @@ const Retrieve = () => {
     await axios
       .get(url)
       .then((res) => {
+        console.log('ji')
         console.log(res.data);
         if (res.data.expirationTime < Date.now()) {
           setExpired(true);
@@ -60,7 +61,11 @@ const Retrieve = () => {
             TempVault
           </a>
           </Link>
+          <div className="timeleft">
+          Time Left 4:59
         </div>
+        </div>
+   
       </header>
       <div class="container-ret">
         <div class="col1">Column 1</div>

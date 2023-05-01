@@ -13,7 +13,7 @@ function FileCreate() {
   const [viewOnce, setViewOnce] = useState(false);
   const [content, setContent] = useState("");
 
-  const url = "/apiservices/insert";
+  const url = "https://tempvault-services.vercel.app/apiservices/insert";
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -29,11 +29,10 @@ function FileCreate() {
       expirationTime: expirationTime,
       viewOnce: viewOnce,
     };
-    console.log(data);
-
-    const response = await axios
+    await axios
       .post(url, data)
-      .then(() => {
+      .then((res) => {
+        console.log(res);
         console.log("Success");
         setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
         navigator.clipboard.writeText(sharedLink);
@@ -52,9 +51,7 @@ function FileCreate() {
     setExpirationDate(event.target.value);
   };
 
-  const handleShareLink = () => {
-
-  };
+  const handleShareLink = () => {};
 
   const handleContentChange = (value) => {
     setContent(value);
@@ -93,64 +90,64 @@ function FileCreate() {
             <ReactQuill value={content} onChange={handleContentChange} />
             <div className="functioning">
               <div className="funct">
-              <div className="funct-1">
-              <label htmlFor="expiration-time " className="expiration">
-                Expiration Time:
-              </label>
-              <select
-                id="expiration-time"
-                value={expirationDate}
-                onChange={handleExpirationTimeChange}
-              >
-                <option className="time-total" value={1}>
-                  1 min
-                </option>
-                <option className="time-total" value={5}>
-                  5 min
-                </option>
-                <option className="time-total" value={10}>
-                  10 min
-                </option>
-                <option className="time-total" value={15}>
-                  15 min
-                </option>
-                <option className="time-total" value={30}>
-                  30 min
-                </option>
-                <option className="time-total" value={60}>
-                  1 hours
-                </option>
-                <option className="time-total" value={120}>
-                  2 hours
-                </option>
-                <option className="time-total" value={240}>
-                  4 hours
-                </option>
-                <option className="time-total" value={480}>
-                  8 hours
-                </option>
-                <option className="time-total" value={720}>
-                  12 hours
-                </option>
-                <option className="time-total" value={1440}>
-                  24 hours
-                </option>
-                <option className="time-total" value={2880}>
-                  48 hours
-                </option>
-              </select>
+                <div className="funct-1">
+                  <label htmlFor="expiration-time " className="expiration">
+                    Expiration Time:
+                  </label>
+                  <select
+                    id="expiration-time"
+                    value={expirationDate}
+                    onChange={handleExpirationTimeChange}
+                  >
+                    <option className="time-total" value={1}>
+                      1 min
+                    </option>
+                    <option className="time-total" value={5}>
+                      5 min
+                    </option>
+                    <option className="time-total" value={10}>
+                      10 min
+                    </option>
+                    <option className="time-total" value={15}>
+                      15 min
+                    </option>
+                    <option className="time-total" value={30}>
+                      30 min
+                    </option>
+                    <option className="time-total" value={60}>
+                      1 hours
+                    </option>
+                    <option className="time-total" value={120}>
+                      2 hours
+                    </option>
+                    <option className="time-total" value={240}>
+                      4 hours
+                    </option>
+                    <option className="time-total" value={480}>
+                      8 hours
+                    </option>
+                    <option className="time-total" value={720}>
+                      12 hours
+                    </option>
+                    <option className="time-total" value={1440}>
+                      24 hours
+                    </option>
+                    <option className="time-total" value={2880}>
+                      48 hours
+                    </option>
+                  </select>
+                </div>
+                <div className="funct-2">
+                  <label className="expiration">View Once:</label>
+                  <input
+                    type="checkbox"
+                    id="view-once"
+                    name="view"
+                    value="view-once"
+                    onChange={(e) => setViewOnce(e.target.checked)}
+                  ></input>
+                </div>
               </div>
-              <div className="funct-2">
-              <label className="expiration">View Once:</label>
-              <input
-                type="checkbox"
-                id="view-once"
-                name="view"
-                value="view-once"
-                onChange={(e) => setViewOnce(e.target.checked)}
-              ></input>
-               </div>
-               </div>
               <button
                 onClick={handleSubmit}
                 type="submit"
@@ -161,7 +158,7 @@ function FileCreate() {
               {sharedLink && (
                 <div>
                   <p className="link">
-               <a href={sharedLink}>{sharedLink}</a>
+                    <a href={sharedLink}>{sharedLink}</a>
                   </p>
                 </div>
               )}
@@ -170,7 +167,7 @@ function FileCreate() {
         </div>
         <div className="column3">
           <div className="numberoflinksmain">
-            <span className="numberoflinks">403</span>  links generated and
+            <span className="numberoflinks">403</span> links generated and
             counting.
           </div>
         </div>
