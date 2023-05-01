@@ -15,13 +15,14 @@ const Retrieve = () => {
     getData();
   }, []);
 
+  
+
   const getData = async () => {
     setLoading(true);
     await axios
       .get(url)
       .then((res) => {
-        console.log('ji')
-        console.log(res.data);
+        console.log(res);
         if (res.data.expirationTime < Date.now()) {
           setExpired(true);
         } else if (!res.data.expirationTime && res.data.dataViewed === true) {
@@ -35,16 +36,16 @@ const Retrieve = () => {
     setLoading(false);
   };
 
-  const display = () => {
-    if (loading) return <div>{loading && <span>Loading...</span>}</div>;
-    else {
-      return (
-        <div>
-          {expired && data ? <p>Link is expired!</p> : <p>{data.cipherText}</p>}
-        </div>
-      );
-    }
-  };
+  // const display = () => {
+  //   if (loading) return <div>{loading && <span>Loading...</span>}</div>;
+  //   else {
+  //     return (
+  //       <div>
+  //         {expired && data ? <p>Link is expired!</p> : <p>{data.cipherText}</p>}
+  //       </div>
+  //     );
+  //   }
+  // };
 
   return (
     // <div>
