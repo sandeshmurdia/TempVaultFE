@@ -90,6 +90,8 @@ function FileCreate() {
           <div>
             <ReactQuill value={content} onChange={handleContentChange} />
             <div className="functioning">
+              <div className="funct">
+              <div className="funct-1">
               <label htmlFor="expiration-time " className="expiration">
                 Expiration Time:
               </label>
@@ -135,6 +137,8 @@ function FileCreate() {
                   48 hours
                 </option>
               </select>
+              </div>
+              <div className="funct-2">
               <label className="expiration">View Once:</label>
               <input
                 type="checkbox"
@@ -143,7 +147,8 @@ function FileCreate() {
                 value="view-once"
                 onChange={(e) => setViewOnce(e.target.checked)}
               ></input>
-              <br></br>
+               </div>
+               </div>
               <button
                 onClick={handleSubmit}
                 type="submit"

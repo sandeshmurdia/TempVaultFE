@@ -33,6 +33,9 @@ body {
 .column3 {
   flex-basis: 100%;
 }
+.funct {
+  display: flex !important;
+}
 
 .numberoflinksmain {
   font-family: "Poppins";
@@ -44,6 +47,13 @@ body {
   letter-spacing: 1px;
   color: #ffffff;
 }
+.funct-1 {
+  width: 50%;
+}
+.funct-2 {
+  width: 40%;
+}
+
 .numberoflinks {
   font-family: "Poppins";
   font-style: normal;
@@ -60,7 +70,7 @@ body {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 30px;
   align-items: center;
   letter-spacing: 1px;
@@ -128,6 +138,11 @@ body {
   .numberoflinksmain {
     margin-left: 0px !important;
   }
+
+  .funct-1,
+  .funct-2 {
+    width: 50%;
+  }
 }
 
 .list-work {
@@ -183,7 +198,7 @@ body {
     flex-basis: 100%;
     height: 50px;
     bottom: 0;
-padding-top: 50px;
+    padding-top: 50px;
   }
   .numberoflinks {
     font-size: 32px;
@@ -225,9 +240,8 @@ padding-top: 50px;
 
   .numberoflinksmain {
     font-size: 14px;
-  margin-left: 20px !important;
+    margin-left: 20px !important;
   }
-
 }
 
 .ql-editor {
