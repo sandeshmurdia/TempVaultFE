@@ -6,14 +6,16 @@ import "./Retrieve.css";
 const Retrieve = () => {
   const { id } = useParams();
   const [data, setData] = useState();
+  const [expirytime, setExpirytime] = useState();
   const url = `https://tempvault-services.vercel.app/apiservices/get/${id}`;
   const [expired, setExpired] = useState();
   // const [viewed, setViewed] = useState();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-     getData();
+    getData();
   }, []);
+
 
   const getData = async () => {
     setLoading(true);
@@ -21,7 +23,7 @@ const Retrieve = () => {
       .get(url)
       .then((res) => {
         console.log(res.data);
-        setData(res.data)
+        setData(res.data.data);
         if (res.data.expirationTime < Date.now()) {
           setExpired(true);
         } else if (!res.data.expirationTime && res.data.dataViewed === true) {
@@ -29,30 +31,36 @@ const Retrieve = () => {
           setExpired(true);
         } else setExpired(false);
 
-        setData(res.data);
+        setData(res.data.data);
       })
       .catch((error) => console.log(error));
     setLoading(false);
   };
 
+
   return (
     <>
       <header className="header">
         <div className="header_content">
-          <Link to="/">
-            <a className="logo" id="logo">
-              TempVault
-            </a>
+          <Link to="/" className="logo" id="logo">
+            TempVault
           </Link>
           <div className="timeleft">Time Left 10:04:59</div>
         </div>
       </header>
       <div className="container-ret">
         <div className="col1">
-          <div className="text-view">
-          {expired && data ? <p className="linkexp">Link is expired!</p> : <p className="linkexp">{data}</p>}
-
-          </div>
+          {loading ? (
+            <div>{loading && <span>Loading...</span>}</div>
+          ) : (
+            <div className="text-view">
+              {expired && data ? (
+                <p className="linkexp">Link is expired!</p>
+              ) : (
+                <p className="linkexp"><pre>{data}</pre></p>
+              )}
+            </div>
+          )}
         </div>
         <div className="col2">
           Your data is encrypted using advanced encryption standards and stored
@@ -62,7 +70,6 @@ const Retrieve = () => {
         <div className="col3">
           Start sharing your data securely and efficiently with Temp Files.
           <Link to="/senddata">
-            {" "}
             <span className="try-it"> Try it now!</span>
           </Link>
         </div>

@@ -12,6 +12,27 @@ body {
   max-width: 300px;
 }
 
+
+.try-it {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  align-items: center;
+  letter-spacing: 1px;
+  background: linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  border-bottom: 2px solid transparent;
+  -webkit-border-image: linear-gradient(
+      87.96deg,
+      #9f25ff 6.22%,
+      #2548ff 104.21%
+    )
+    1;
+  border-image: linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%) 1;
+}
 .col1 {
   flex-basis: 50%;
 }
@@ -56,7 +77,6 @@ body {
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
-  line-height: 30px;
   text-align: center;
   letter-spacing: 1px;
   color: #cccccc;
@@ -103,27 +123,6 @@ body {
   margin-right: 50px;
 }
 
-.try-it {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 40px;
-  align-items: center;
-  letter-spacing: 1px;
-  background: linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  border-bottom: 2px solid transparent;
-  -webkit-border-image: linear-gradient(
-      87.96deg,
-      #9f25ff 6.22%,
-      #2548ff 104.21%
-    )
-    1;
-  border-image: linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%) 1;
-}
 
 @media screen and (max-width: 1100px) {
   .col1,
@@ -140,6 +139,12 @@ body {
     padding: auto;
   }
 
+  .col2{
+    height: auto;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
   .col3 {
     padding: 30px;
     flex-basis: 100%;
@@ -148,6 +153,12 @@ body {
     height: 100px;
     font-size: 16px;
   }
+
+  .try-it{
+    font-size: 16px;
+  }
+
+
   .col2,
   .timeleft {
     font-size: 16px;
@@ -172,6 +183,10 @@ body {
     height: 50px;
     font-size: 12px;
   }
+
+.try-it{
+  font-size: 12px;
+}
   .col2,
   .timeleft {
     font-size: 12px;
