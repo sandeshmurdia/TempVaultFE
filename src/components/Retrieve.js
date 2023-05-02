@@ -50,7 +50,7 @@ const Retrieve = () => {
       <div class="container-ret">
         <div class="col1">
           <div className="text-view">
-          {expired && data ? <p className="linkexp">Link is expired!</p> : <p className="linkexp">{data.data}</p>}
+          {expired && data ? <p className="linkexp">Link is expired!</p> : <p className="linkexp">{data}</p>}
 
           </div>
         </div>
