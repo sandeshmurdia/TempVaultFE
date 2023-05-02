@@ -11,8 +11,8 @@ const Retrieve = () => {
   // const [viewed, setViewed] = useState();
   const [loading, setLoading] = useState(true);
 
-  useEffect( async() => {
-    await getData();
+  useEffect(() => {
+     getData();
   }, []);
 
   const getData = async () => {
@@ -47,19 +47,19 @@ const Retrieve = () => {
           <div className="timeleft">Time Left 10:04:59</div>
         </div>
       </header>
-      <div class="container-ret">
-        <div class="col1">
+      <div className="container-ret">
+        <div className="col1">
           <div className="text-view">
           {expired && data ? <p className="linkexp">Link is expired!</p> : <p className="linkexp">{data}</p>}
 
           </div>
         </div>
-        <div class="col2">
+        <div className="col2">
           Your data is encrypted using advanced encryption standards and stored
           securely on our server. We take your privacy and security seriously
           and ensure that your data is protected at all times.
         </div>
-        <div class="col3">
+        <div className="col3">
           Start sharing your data securely and efficiently with Temp Files.
           <Link to="/senddata">
             {" "}
