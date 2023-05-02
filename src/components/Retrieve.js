@@ -11,8 +11,8 @@ const Retrieve = () => {
   // const [viewed, setViewed] = useState();
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    getData();
+  useEffect( async() => {
+    await getData();
   }, []);
 
   const getData = async () => {
