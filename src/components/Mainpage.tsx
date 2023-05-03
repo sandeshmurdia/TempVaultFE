@@ -151,7 +151,7 @@ function Mainpage() {
         {/*team */}
         <section id="contact"></section>
         <div className="contact">
-          <h1 className="ourteam">Developed By</h1>
+          <h1 className="feature-heading">Developed By</h1>
           <div className="responsive-container-block container">
             <div className="responsive-container-block">
               <div className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container-about">

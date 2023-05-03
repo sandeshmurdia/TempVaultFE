@@ -63,7 +63,7 @@ const Retrieve = () => {
           )}
         </div>
         <div className="col2">
-        Start sharing your data securely and efficiently with Temp Files.
+        Start sharing your data securely and efficiently with TempVault.
           <Link to="/senddata">
             <span className="try-it"> Try it now!</span>
           </Link>
