@@ -153,17 +153,16 @@ function FileCreate() {
               {sharedLink && (
                 <div>
                   <p className="link">
-                    <a href={sharedLink} className="expiration share-link">Your Link: <span style={{fontWeight: 300, color: "#3366CC"}}>tempvault.netlify.app/download/text/...</span></a>
+                    <a href={sharedLink} className="expiration share-link">
+                      Your Link:{" "}
+                      <span style={{ fontWeight: 300, color: "#3366CC" }}>
+                        tempvault.netlify.app/download/text/...
+                      </span>
+                    </a>
                   </p>
                 </div>
               )}
             </div>
-          </div>
-        </div>
-        <div className="column3">
-          <div className="numberoflinksmain">
-            <span className="numberoflinks">403</span> links generated and
-            counting.
           </div>
         </div>
       </div>

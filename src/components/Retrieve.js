@@ -54,7 +54,7 @@ const Retrieve = () => {
             <div>{loading && <span>Loading...</span>}</div>
           ) : (
             <div className="text-view">
-              {expired && data ? (
+              {expired  ? (
                 <p className="linkexp">Link is expired!</p>
               ) : (
                 <p className="linkexp"><pre>{data}</pre></p>
@@ -63,16 +63,16 @@ const Retrieve = () => {
           )}
         </div>
         <div className="col2">
-          Your data is encrypted using advanced encryption standards and stored
-          securely on our server. We take your privacy and security seriously
-          and ensure that your data is protected at all times.
-        </div>
-        <div className="col3">
-          Start sharing your data securely and efficiently with Temp Files.
+        Start sharing your data securely and efficiently with Temp Files.
           <Link to="/senddata">
             <span className="try-it"> Try it now!</span>
           </Link>
+          <br></br><br></br>
+          <p className="yourdata">Your data is encrypted using advanced encryption standards and stored
+          securely on our server. We take your privacy and security seriously
+          and ensure that your data is protected at all times. </p>
         </div>
+      
       </div>
     </>
   );

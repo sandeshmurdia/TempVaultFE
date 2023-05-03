@@ -44,11 +44,15 @@ body {
   font-size: 20px;
   letter-spacing: 1px;
   color: #cccccc;
+  padding-bottom: 50px;
+}
+
+.yourdata{
+  font-weight: 400;
 }
 .col1,
 .col2 {
   height: 50vh;
-  margin-bottom: auto;
   margin-left: 50px;
   margin-right: 50px;
   padding: auto;

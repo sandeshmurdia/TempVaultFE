@@ -165,7 +165,7 @@ function Mainpage() {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
                   <div className="social-icons">
-                    <a href="https://www.linkedin.com/in/sa9desh" target="_blank">
+                    <a href="https://www.linkedin.com/in/sandeshmurdia/" target="_blank">
                       <img height={22} width={22} src={linkedin} />
                     </a>
                     <a href="https://github.com/sandeshmurdia" target="_blank">
