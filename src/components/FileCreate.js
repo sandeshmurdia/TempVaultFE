@@ -25,6 +25,9 @@ function FileCreate() {
       Math.random().toString(36).substring(2, 32) +
       Math.random().toString(36).substring(2, 32);
     const expirationTime = new Date().getTime() + expirationDate * 60 * 1000;
+   
+    
+
 
     const data = {
       cipherText: content.toString(),
@@ -158,8 +161,8 @@ function FileCreate() {
                 <div>
                   <p className="link">
                     <a href={sharedLink} className="expiration share-link">
-                      Your Link:
-                      <span style={{ fontWeight: 300, color: "#3366CC" }}>
+                      Your Link: 
+                      <span style={{ fontWeight: 300, color: "#3366CC" , marginLeft: '10px' }}>
                         tempvault.netlify.app/download/text/...
                       </span>
                     </a>
