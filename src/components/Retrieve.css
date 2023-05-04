@@ -43,7 +43,7 @@ body {
   font-weight: 600;
   font-size: 20px;
   letter-spacing: 1px;
-  color: #cccccc;
+  color: #fff;
   padding-bottom: 50px;
 }
 
@@ -68,7 +68,8 @@ body {
   font-weight: 600;
   font-size: 24px;
   letter-spacing: 1px;
-  color: #cccccc;
+  padding-left: 30px;
+  color: #fff;
 }
 
 .col1 {
@@ -83,7 +84,7 @@ body {
   font-size: 20px;
   text-align: center;
   letter-spacing: 1px;
-  color: #cccccc;
+  color: #fff;
 }
 
 .text-view {
@@ -123,7 +124,7 @@ body {
   line-height: 40px;
   text-align: center;
   letter-spacing: 1px;
-  color: #cccccc;
+  color: #fff;
   margin-right: 50px;
 }
 
@@ -220,4 +221,74 @@ body {
 .text-view::-webkit-scrollbar-thumb {
   background: #444;
   border-radius: 50px;
+}
+
+@media screen and (max-width: 576px) {
+  .dataprint p {
+    font-size: 12px !important;
+  }
+
+  .dataprint h1 {
+    font-size: 20px !important;
+  }
+
+  .dataprint h2 {
+    font-size: 18px !important;
+  }
+
+  .dataprint h3 {
+    font-size: 16px !important;
+  }
+}
+@media screen and (max-width: 992px) {
+  .dataprint p {
+    font-size: 14px !important;
+  }
+
+  .dataprint h1 {
+    font-size: 28px !important;
+  }
+
+  .dataprint h2 {
+    font-size: 24px !important;
+  }
+
+  .dataprint h3 {
+    font-size: 20px !important;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .dataprint p {
+    font-size: 16px !important;
+  }
+
+  .dataprint h1 {
+    font-size: 36px !important;
+  }
+
+  .dataprint h2 {
+    font-size: 32px !important;
+  }
+
+  .dataprint h3 {
+    font-size: 28px !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .dataprint p {
+    font-size: 18px !important;
+  }
+
+  .dataprint h1 {
+    font-size: 48px !important;
+  }
+
+  .dataprint h2 {
+    font-size: 40px !important;
+  }
+
+  .dataprint h3 {
+    font-size: 36px !important;
+  }
 }

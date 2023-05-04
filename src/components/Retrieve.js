@@ -6,10 +6,8 @@ import "./Retrieve.css";
 const Retrieve = () => {
   const { id } = useParams();
   const [data, setData] = useState();
-  const [expirytime, setExpirytime] = useState();
   const url = `https://tempvault-services.vercel.app/apiservices/get/${id}`;
   const [expired, setExpired] = useState();
-  // const [viewed, setViewed] = useState();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -57,7 +55,7 @@ const Retrieve = () => {
               {expired  ? (
                 <p className="linkexp">Link is expired!</p>
               ) : (
-                <p className="linkexp"><pre>{data}</pre></p>
+                <p className="linkexp"><div className="dataprint" dangerouslySetInnerHTML={{ __html: data }} /></p>
               )}
             </div>
           )}

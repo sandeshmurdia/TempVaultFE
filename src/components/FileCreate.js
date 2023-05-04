@@ -15,6 +15,10 @@ function FileCreate() {
   const url = "https://tempvault-services.vercel.app/apiservices/insert";
 
   const handleSubmit = async (event) => {
+    if(content===null){
+      alert('nothing');
+      return;
+    }
     event.preventDefault();
     const uuid =
       Math.random().toString(36).substring(2, 32) +
@@ -154,7 +158,7 @@ function FileCreate() {
                 <div>
                   <p className="link">
                     <a href={sharedLink} className="expiration share-link">
-                      Your Link:{" "}
+                      Your Link:
                       <span style={{ fontWeight: 300, color: "#3366CC" }}>
                         tempvault.netlify.app/download/text/...
                       </span>

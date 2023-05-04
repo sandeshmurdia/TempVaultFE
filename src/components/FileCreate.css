@@ -14,7 +14,7 @@ body {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  color: #cccccc;
+  color: #fff;
 }
 
 .column1,
@@ -173,7 +173,7 @@ body {
   align-items: center;
   margin: 0;
   letter-spacing: 1px;
-  color: #cccccc;
+  color: #fff;
 }
 
 .how-it {
@@ -185,7 +185,7 @@ body {
   align-items: center;
   letter-spacing: 1px;
   margin: 0;
-  color: #cccccc;
+  color: #fff;
 }
 
 @media screen and (max-width: 1100px) {
@@ -367,5 +367,13 @@ body {
 }
 
 .ql-picker-label{
-  color: #cccccc;
+  color: #fff;
+}
+
+.ql-snow .ql-stroke {
+  stroke: #fff !important;
+}
+
+.ql-fill{
+  fill: #fff !important;
 }
