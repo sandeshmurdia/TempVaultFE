@@ -15,7 +15,7 @@ function FileCreate() {
   const url = "https://tempvault-services.vercel.app/apiservices/insert";
 
   const handleSubmit = async (event) => {
-    if(content===null){
+    if(content===""){
       alert('nothing');
       return;
     }
