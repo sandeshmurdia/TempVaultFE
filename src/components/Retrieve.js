@@ -3,17 +3,18 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import "./Retrieve.css";
+import { ReverseTimer } from "./Reversetimer";
 const Retrieve = () => {
   const { id } = useParams();
   const [data, setData] = useState();
   const url = `https://tempvault-services.vercel.app/apiservices/get/${id}`;
   const [expired, setExpired] = useState();
   const [loading, setLoading] = useState(true);
+  const [remainingtime, setRemainingtime]= useState();
 
   useEffect(() => {
     getData();
   }, []);
-
 
   const getData = async () => {
     setLoading(true);
@@ -21,6 +22,7 @@ const Retrieve = () => {
       .get(url)
       .then((res) => {
         console.log(res.data);
+         setRemainingtime(res.data.expirationTime)
         setData(res.data.data);
         if (res.data.expirationTime < Date.now()) {
           setExpired(true);
@@ -43,8 +45,11 @@ const Retrieve = () => {
           <Link to="/" className="logo" id="logo">
             TempVault
           </Link>
-          <div className="timeleft">Time Left 10:04:59</div>
-        </div>
+          {remainingtime && (
+            <div className="timeleft">
+              Time Left <ReverseTimer milliseconds={remainingtime - Date.now()} />
+            </div>
+          )}        </div>
       </header>
       <div className="container-ret">
         <div className="col1">
