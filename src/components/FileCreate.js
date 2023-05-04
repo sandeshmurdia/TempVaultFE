@@ -40,6 +40,7 @@ function FileCreate() {
       .then((res) => {
         console.log(res);
         console.log("Success");
+        // setSharedLink(`http://localhost:3000/download/text/${uuid}`);
         setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
         navigator.clipboard.writeText(sharedLink);
         alert(`Link copied to clipboard`);

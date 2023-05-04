@@ -8,7 +8,7 @@ const Retrieve = () => {
   const { id } = useParams();
   const [data, setData] = useState();
   const url = `https://tempvault-services.vercel.app/apiservices/get/${id}`;
-  const [expired, setExpired] = useState();
+  const [expired, setExpired] = useState(false);
   const [loading, setLoading] = useState(true);
   const [remainingtime, setRemainingtime]= useState();
 
@@ -21,15 +21,12 @@ const Retrieve = () => {
     await axios
       .get(url)
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data.expired)
          setRemainingtime(res.data.expirationTime)
         setData(res.data.data);
-        if (res.data.expirationTime < Date.now()) {
+        if (res.data.expired) {
           setExpired(true);
-        } else if (!res.data.expirationTime && res.data.dataViewed === true) {
-          console.log("Viewed Once, can't view again");
-          setExpired(true);
-        } else setExpired(false);
+        }else setExpired(false)
 
         setData(res.data.data);
       })
@@ -57,8 +54,8 @@ const Retrieve = () => {
             <div>{loading && <span>Loading...</span>}</div>
           ) : (
             <div className="text-view">
-              {expired  ? (
-                <p className="linkexp">Link is expired!</p>
+              {expired ? (
+                <p className="linkexp expiredlink">Link is expired!</p>
               ) : (
                 <p className="linkexp"><div className="dataprint" dangerouslySetInnerHTML={{ __html: data }} /></p>
               )}
