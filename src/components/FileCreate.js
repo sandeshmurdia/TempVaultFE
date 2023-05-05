@@ -5,6 +5,8 @@ import "./FileCreate.css";
 import { Link } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function FileCreate() {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
   const [expirationDate, setExpirationDate] = useState(5); // 5 mins
@@ -12,7 +14,7 @@ function FileCreate() {
   const [viewOnce, setViewOnce] = useState(false);
   const [content, setContent] = useState("");
   const [count, setCount] = useState();
-  const url = "https://tempvault-services.vercel.app/apiservices/insert";
+  const url = "https://tempvault-srvices.vercel.app/apiservices/insert";
   const counturl =
     "https://tempvault-services.vercel.app/apiservices/get-count";
 
@@ -53,14 +55,32 @@ function FileCreate() {
       .then((res) => {
         console.log(res);
         console.log("Success");
+        toast.success("Link Generated successfully.", {
+          position: "top-right",
+          autoClose: 100000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
         // setSharedLink(`http://localhost:3000/download/text/${uuid}`);
         setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
         navigator.clipboard.writeText(sharedLink);
-        alert(`Link copied to clipboard`);
         setContent("");
       })
       .catch((err) => {
-        alert(`Failed`);
+        toast.error('Failed try again!', {
+          position: "top-right",
+          autoClose: 50000000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
         console.log("Failed ", err);
       });
   };
@@ -75,6 +95,19 @@ function FileCreate() {
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        className='toast'
+        autoClose={3000}
+        limit={1}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <header className="header">
         <div className="header_content">
           <Link to="/">
