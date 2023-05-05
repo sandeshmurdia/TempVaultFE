@@ -14,7 +14,7 @@ function FileCreate() {
   const [viewOnce, setViewOnce] = useState(false);
   const [content, setContent] = useState("");
   const [count, setCount] = useState();
-  const url = "https://tempvault-srvices.vercel.app/apiservices/insert";
+  const url = "https://tempvault-services.vercel.app/apiservices/insert";
   const counturl =
     "https://tempvault-services.vercel.app/apiservices/get-count";
 
