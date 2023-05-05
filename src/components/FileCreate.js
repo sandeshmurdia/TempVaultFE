@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CryptoJS from "crypto-js";
 import axios from "axios";
 import "./FileCreate.css";
@@ -11,12 +11,28 @@ function FileCreate() {
   const [sharedLink, setSharedLink] = useState(null);
   const [viewOnce, setViewOnce] = useState(false);
   const [content, setContent] = useState("");
-
+  const [count, setCount] = useState();
   const url = "https://tempvault-services.vercel.app/apiservices/insert";
+  const counturl =
+    "https://tempvault-services.vercel.app/apiservices/get-count";
+
+  useEffect(() => {
+    getCount();
+  }, []);
+
+  const getCount = async () => {
+    await axios
+      .get(counturl)
+      .then((res) => {
+        console.log(res);
+        setCount(res.data.count);
+      })
+      .catch((error) => console.log(error));
+  };
 
   const handleSubmit = async (event) => {
-    if(content===""){
-      alert('nothing');
+    if (content === "") {
+      alert("nothing");
       return;
     }
     event.preventDefault();
@@ -25,9 +41,6 @@ function FileCreate() {
       Math.random().toString(36).substring(2, 32) +
       Math.random().toString(36).substring(2, 32);
     const expirationTime = new Date().getTime() + expirationDate * 60 * 1000;
-   
-    
-
 
     const data = {
       cipherText: content.toString(),
@@ -162,8 +175,14 @@ function FileCreate() {
                 <div>
                   <p className="link">
                     <a href={sharedLink} className="expiration share-link">
-                      Your Link: 
-                      <span style={{ fontWeight: 300, color: "#3366CC" , marginLeft: '10px' }}>
+                      Your Link:
+                      <span
+                        style={{
+                          fontWeight: 300,
+                          color: "#3366CC",
+                          marginLeft: "10px",
+                        }}
+                      >
                         tempvault.netlify.app/download/text/...
                       </span>
                     </a>
