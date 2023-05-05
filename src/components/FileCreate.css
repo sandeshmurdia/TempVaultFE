@@ -385,3 +385,7 @@ body {
  font-family: "Poppins";
  font-size: 12px;
 }
+.Toastify__toast{
+  min-height: 40px !important;
+  max-height: 50px !important;
+}
