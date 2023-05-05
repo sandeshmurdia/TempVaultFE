@@ -381,11 +381,14 @@ body {
 .Toastify__toast-icon {
   height: 14px;
 }
-.Toastify__toast-body{
- font-family: "Poppins";
- font-size: 12px;
+.Toastify__toast-body {
+  font-family: "Poppins";
+  font-size: 12px;
 }
-.Toastify__toast{
+.Toastify__toast {
   min-height: 30px !important;
   max-height: 30px !important;
+}
+.Toastify__close-button > svg {
+  margin-top: 7px !important;
 }

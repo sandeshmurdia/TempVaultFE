@@ -57,7 +57,7 @@ function FileCreate() {
         console.log("Success");
         toast.success("Link Generated successfully.", {
           position: "top-right",
-          autoClose: 100000,
+          autoClose: 5000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
@@ -73,7 +73,7 @@ function FileCreate() {
       .catch((err) => {
         toast.error('Failed try again!', {
           position: "top-right",
-          autoClose: 50000000,
+          autoClose: 5000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
@@ -98,7 +98,7 @@ function FileCreate() {
       <ToastContainer
         position="top-right"
         className='toast'
-        autoClose={3000}
+        autoClose={5000}
         limit={1}
         newestOnTop={false}
         closeOnClick
