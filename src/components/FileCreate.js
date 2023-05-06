@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Snackbar, { snackbarColor } from "./Snackbar/Snackbar.js";
+import copyIcon from './svg/copy2.png'
+import shareIcon from './svg/share.png'
+import Tooltip from '@mui/material/Tooltip';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
 
 function FileCreate() {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -57,12 +61,12 @@ function FileCreate() {
         console.log(res);
         // setSharedLink(`http://localhost:3000/download/text/${uuid}`);
         setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
-        navigator.clipboard.writeText(sharedLink);
         DisplaySnackBar(1, 'Link Generated Successfully');
       })
       .catch((err) => {
         DisplaySnackBar(0, 'Oops, something went wrong. Please try again later');
       });
+
     setContent("");
   };
 
@@ -79,6 +83,30 @@ function FileCreate() {
   const handleContentChange = (value) => {
     setContent(value);
   };
+
+  const [showToolTip, setShowToolTip] = React.useState(false);
+
+  const handleTooltipClose = () => {
+    setShowToolTip(false);
+  };
+
+  const handleCopy = () => {
+    setShowToolTip(true);
+    setTimeout(() => {
+      setShowToolTip(false);
+    }, 2000);
+    navigator.clipboard.writeText(sharedLink);
+  }
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'TempVault',
+        url: sharedLink
+      })
+    }
+  }
+
+
 
   return (
     <>
@@ -180,21 +208,44 @@ function FileCreate() {
                 Generate Link
               </button>
               {sharedLink && (
-                <div>
-                  <p className="link">
-                    <a href={sharedLink} className="expiration share-link">
-                      Your Link:
-                      <span
-                        style={{
-                          fontWeight: 300,
-                          color: "#3366CC",
-                          marginLeft: "10px",
-                        }}
-                      >
-                        tempvault.netlify.app/download/text/...
-                      </span>
-                    </a>
-                  </p>
+                <div className="link-container">
+                  <div className="link-child">
+                    <p className="link">
+                      <a href={sharedLink} className="expiration share-link">
+                        <span
+                          style={{
+                            fontWeight: 300,
+                            marginLeft: "10px",
+                          }}
+                        >
+                          tempvault.netlify.app/download/text/...
+                        </span>
+                      </a>
+                    </p>
+                    <div className="util-button-container">
+                      <div className="copy-button-div" onClick={handleShare}>
+                        <img className="copy-icon" src={shareIcon} />
+                      </div>
+                      <ClickAwayListener onClickAway={handleTooltipClose}>
+                        <Tooltip
+                          PopperProps={{
+                            disablePortal: true,
+                          }}
+                          onClose={handleTooltipClose}
+                          open={showToolTip}
+                          disableFocusListener
+                          disableHoverListener
+                          disableTouchListener
+                          title="Copied!"
+                          placement="right-start"
+                        >
+                          <div className="copy-button-div" onClick={handleCopy}>
+                            <img className="copy-icon" src={copyIcon} />
+                          </div>
+                        </Tooltip>
+                      </ClickAwayListener>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>

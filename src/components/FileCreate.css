@@ -14,7 +14,7 @@ body {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  color: #fff;
+  color: #fff !important;
 }
 
 .column1,
@@ -40,6 +40,7 @@ body {
 .column3 {
   flex-basis: 100%;
 }
+
 .funct {
   display: flex !important;
 }
@@ -54,9 +55,11 @@ body {
   letter-spacing: 1px;
   color: #ffffff;
 }
+
 .funct-1 {
   width: 50%;
 }
+
 .funct-2 {
   width: 40%;
 }
@@ -140,20 +143,24 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+
   .column1,
   .column2,
   .column3 {
     flex-basis: 100%;
   }
+
   .column1 {
     height: auto;
     margin-bottom: 30px;
   }
+
   .column3 {
     margin-left: 0px !important;
     height: 100px;
     text-align: center;
   }
+
   .numberoflinksmain {
     margin-left: 0px !important;
   }
@@ -192,23 +199,28 @@ body {
   .list-work {
     font-size: 16px;
   }
+
   .how-it {
     font-size: 20px;
   }
+
   #logo {
     margin-left: 30px;
     margin-right: auto;
     font-size: 28px;
   }
+
   .column1,
   .column2 {
     margin-left: 30px;
     margin-right: 30px;
     padding: auto;
   }
+
   .column1 {
     margin-top: 10%;
   }
+
   .column2 {
     margin-top: 3%;
   }
@@ -219,6 +231,7 @@ body {
     bottom: 0;
     padding-top: 50px;
   }
+
   .numberoflinks {
     font-size: 32px;
   }
@@ -233,14 +246,17 @@ body {
   .list-work {
     font-size: 12px;
   }
+
   .how-it {
     font-size: 16px;
   }
+
   #logo {
     margin-left: 20px;
     margin-right: auto;
     font-size: 24px;
   }
+
   .column1,
   .column2 {
     margin-top: 10%;
@@ -249,6 +265,7 @@ body {
     margin-right: 20px;
     padding: auto;
   }
+
   .numberoflinks {
     font-size: 28px;
   }
@@ -295,6 +312,7 @@ body {
     font-size: 16px !important;
   }
 }
+
 @media screen and (max-width: 992px) {
   .ql-editor p {
     font-size: 14px !important;
@@ -312,6 +330,7 @@ body {
     font-size: 20px !important;
   }
 }
+
 @media screen and (max-width: 1200px) {
   .ql-editor p {
     font-size: 16px !important;
@@ -378,17 +397,41 @@ body {
   fill: #fff !important;
 }
 
-.Toastify__toast-icon {
-  height: 14px;
+.link-container {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  justify-content: center;
+  margin-top: 10px;
+  width: 515px;
+  background: linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%);
 }
-.Toastify__toast-body {
-  font-family: "Poppins";
-  font-size: 12px;
+
+.link-child {
+  display: inline-flex;
+  align-items: center;
+  background: black;
+  margin: 1.5px;
+  width: 100%;
+  border-radius: 4px;
 }
-.Toastify__toast {
-  min-height: 30px !important;
-  max-height: 30px !important;
+
+.copy-icon {
+  height: 20px;
+  cursor: pointer;
 }
-.Toastify__close-button > svg {
-  margin-top: 7px !important;
+
+.copy-icon:hover,
+.copy-icon:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.10em);
+}
+
+.copy-button-div {
+  margin-right: 10px;
+}
+
+.util-button-container{
+  display: inline-flex;
+  margin-left: auto;
 }
