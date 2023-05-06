@@ -5,6 +5,8 @@ import "./FileCreate.css";
 import { Link } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import Snackbar, { snackbarColor } from "./Snackbar/Snackbar.js";
+
 function FileCreate() {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
   const [expirationDate, setExpirationDate] = useState(5); // 5 mins
@@ -14,9 +16,9 @@ function FileCreate() {
 
   const url = "https://tempvault-services.vercel.app/apiservices/insert";
 
-  const handleSubmit = async (event) => {
-    if(content===""){
-      alert('nothing');
+  const handleSubmit = (event) => {
+    if (content === "") {
+      DisplaySnackBar(snackbarColor[0], 'Please enter something to generate a link')
       return;
     }
     event.preventDefault();
@@ -25,9 +27,6 @@ function FileCreate() {
       Math.random().toString(36).substring(2, 32) +
       Math.random().toString(36).substring(2, 32);
     const expirationTime = new Date().getTime() + expirationDate * 60 * 1000;
-   
-    
-
 
     const data = {
       cipherText: content.toString(),
@@ -35,22 +34,30 @@ function FileCreate() {
       expirationTime: expirationTime,
       viewOnce: viewOnce,
     };
-    await axios
+
+    axios
       .post(url, data)
       .then((res) => {
         console.log(res);
-        console.log("Success");
-        // setSharedLink(`http://localhost:3000/download/text/${uuid}`);
-        setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
-        navigator.clipboard.writeText(sharedLink);
-        alert(`Link copied to clipboard`);
-        setContent("");
+        // console.log("Success");
+        // // setSharedLink(`http://localhost:3000/download/text/${uuid}`);
+        // setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
+        // navigator.clipboard.writeText(sharedLink);
+        // alert(`Link copied to clipboard`);
+        DisplaySnackBar(snackbarColor[1], 'Link Generated Successfully');
       })
       .catch((err) => {
-        alert(`Failed`);
-        console.log("Failed ", err);
+        DisplaySnackBar(snackbarColor[0], 'Oops, something went wrong. Please try again later');
       });
+    setContent("");
   };
+
+  const [snackbar, setSnackbar] = useState();
+
+  const DisplaySnackBar = (saverity, message) => {
+    console.log(saverity, message);
+    setSnackbar({ saverity, message, date: Date.now() });
+  }
 
   const handleExpirationTimeChange = (event) => {
     setExpirationDate(event.target.value);
@@ -62,6 +69,8 @@ function FileCreate() {
 
   return (
     <>
+      {snackbar && <Snackbar key={snackbar.date} message={snackbar.message} severity={snackbar.saverity} />}
+      {console.log(snackbar)}
       <header className="header">
         <div className="header_content">
           <Link to="/">
@@ -162,8 +171,8 @@ function FileCreate() {
                 <div>
                   <p className="link">
                     <a href={sharedLink} className="expiration share-link">
-                      Your Link: 
-                      <span style={{ fontWeight: 300, color: "#3366CC" , marginLeft: '10px' }}>
+                      Your Link:
+                      <span style={{ fontWeight: 300, color: "#3366CC", marginLeft: '10px' }}>
                         tempvault.netlify.app/download/text/...
                       </span>
                     </a>
