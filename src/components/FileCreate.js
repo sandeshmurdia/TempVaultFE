@@ -218,7 +218,7 @@ function FileCreate() {
                             marginLeft: "10px",
                           }}
                         >
-                          tempvault.netlify.app/download/text/...
+                          tempvault.netlify.app/download/...
                         </span>
                       </a>
                     </p>
