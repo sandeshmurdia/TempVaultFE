@@ -34,7 +34,7 @@ function FileCreate() {
 
   const handleSubmit = (event) => {
     if (content === "") {
-      DisplaySnackBar(snackbarColor[0], 'Please enter something to generate a link')
+      DisplaySnackBar(0, 'Please enter something to generate a link')
       return;
     }
     event.preventDefault();
@@ -55,15 +55,13 @@ function FileCreate() {
       .post(url, data)
       .then((res) => {
         console.log(res);
-        // console.log("Success");
-        // // setSharedLink(`http://localhost:3000/download/text/${uuid}`);
-        // setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
-        // navigator.clipboard.writeText(sharedLink);
-        // alert(`Link copied to clipboard`);
-        DisplaySnackBar(snackbarColor[1], 'Link Generated Successfully');
+        // setSharedLink(`http://localhost:3000/download/text/${uuid}`);
+        setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
+        navigator.clipboard.writeText(sharedLink);
+        DisplaySnackBar(1, 'Link Generated Successfully');
       })
       .catch((err) => {
-        DisplaySnackBar(snackbarColor[0], 'Oops, something went wrong. Please try again later');
+        DisplaySnackBar(0, 'Oops, something went wrong. Please try again later');
       });
     setContent("");
   };
@@ -71,7 +69,6 @@ function FileCreate() {
   const [snackbar, setSnackbar] = useState();
 
   const DisplaySnackBar = (saverity, message) => {
-    console.log(saverity, message);
     setSnackbar({ saverity, message, date: Date.now() });
   }
 
@@ -85,7 +82,7 @@ function FileCreate() {
 
   return (
     <>
-      {snackbar && <Snackbar key={snackbar.date} message={snackbar.message} severity={snackbar.saverity} />}
+      {snackbar && <Snackbar key={snackbar.date} message={snackbar.message} snackColor={snackbar.saverity} />}
       <header className="header">
         <div className="header_content">
           <Link to="/">

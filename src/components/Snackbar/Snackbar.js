@@ -4,7 +4,7 @@ import MuiAlert from '@mui/material/Alert';
 import Slide from '@mui/material/Slide';
 
 export const snackbarColor = ['error', 'success', 'warning'];
-export default function CustomizedSnackbars({ key, message, saverity }) {
+export default function CustomizedSnackbars({ key, message, snackColor }) {
 
     const [open, setOpen] = useState(true);
 
@@ -23,7 +23,7 @@ export default function CustomizedSnackbars({ key, message, saverity }) {
         }
         setOpen(false);
     }
-    
+
     useEffect(() => {
         setOpen(true);
     }, [key])
@@ -37,7 +37,7 @@ export default function CustomizedSnackbars({ key, message, saverity }) {
             onClose={handleClose}
         >
             <Alert
-                severity={saverity}
+                severity={snackbarColor[snackColor]}
                 sx={{
                     width: '100%',
                 }}
