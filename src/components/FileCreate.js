@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CryptoJS from "crypto-js";
 import axios from "axios";
 import "./FileCreate.css";
@@ -13,8 +13,24 @@ function FileCreate() {
   const [sharedLink, setSharedLink] = useState(null);
   const [viewOnce, setViewOnce] = useState(false);
   const [content, setContent] = useState("");
-
+  const [count, setCount] = useState();
   const url = "https://tempvault-services.vercel.app/apiservices/insert";
+  const counturl =
+    "https://tempvault-services.vercel.app/apiservices/get-count";
+
+  useEffect(() => {
+    getCount();
+  }, []);
+
+  const getCount = async () => {
+    await axios
+      .get(counturl)
+      .then((res) => {
+        console.log(res);
+        setCount(res.data.count);
+      })
+      .catch((error) => console.log(error));
+  };
 
   const handleSubmit = (event) => {
     if (content === "") {
@@ -70,7 +86,6 @@ function FileCreate() {
   return (
     <>
       {snackbar && <Snackbar key={snackbar.date} message={snackbar.message} severity={snackbar.saverity} />}
-      {console.log(snackbar)}
       <header className="header">
         <div className="header_content">
           <Link to="/">
@@ -172,7 +187,13 @@ function FileCreate() {
                   <p className="link">
                     <a href={sharedLink} className="expiration share-link">
                       Your Link:
-                      <span style={{ fontWeight: 300, color: "#3366CC", marginLeft: '10px' }}>
+                      <span
+                        style={{
+                          fontWeight: 300,
+                          color: "#3366CC",
+                          marginLeft: "10px",
+                        }}
+                      >
                         tempvault.netlify.app/download/text/...
                       </span>
                     </a>

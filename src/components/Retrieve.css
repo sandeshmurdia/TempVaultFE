@@ -13,9 +13,9 @@ body {
 }
 
 .expiredlink{
-
   text-align: center;
   margin-left: -30px;
+
 }
 .try-it {
   font-family: "Poppins";
@@ -145,6 +145,8 @@ body {
     margin-top: 10%;
     margin-bottom: auto;
     margin-left: 30px;
+    position: relative;
+    display: inline-table;
     margin-right: 30px;
     padding: auto;
   }
@@ -297,4 +299,6 @@ body {
   .dataprint h3 {
     font-size: 36px !important;
   }
+}
+.toast{
 }

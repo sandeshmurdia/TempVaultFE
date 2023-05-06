@@ -109,13 +109,13 @@ body {
   border-radius: 4px;
 }
 
-.quill{
+.quill {
   margin-right: 20px;
   width: 50vw;
 }
 
 @media screen and (max-width: 768px) {
-  .quill{
+  .quill {
     width: 88vw;
   }
 }
@@ -366,7 +366,7 @@ body {
   border-radius: 50px;
 }
 
-.ql-picker-label{
+.ql-picker-label {
   color: #fff;
 }
 
@@ -374,6 +374,21 @@ body {
   stroke: #fff !important;
 }
 
-.ql-fill{
+.ql-fill {
   fill: #fff !important;
+}
+
+.Toastify__toast-icon {
+  height: 14px;
+}
+.Toastify__toast-body {
+  font-family: "Poppins";
+  font-size: 12px;
+}
+.Toastify__toast {
+  min-height: 30px !important;
+  max-height: 30px !important;
+}
+.Toastify__close-button > svg {
+  margin-top: 7px !important;
 }
