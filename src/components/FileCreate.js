@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Snackbar, { snackbarColor } from "./Snackbar/Snackbar.js";
-import copyIcon from './svg/copy2.png'
-import shareIcon from './svg/share.png'
-import Tooltip from '@mui/material/Tooltip';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
+import copyIcon from "./svg/copy3.png";
+import shareIcon from "./svg/share.svg";
+import Tooltip from "@mui/material/Tooltip";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
 
 function FileCreate() {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -38,7 +38,7 @@ function FileCreate() {
 
   const handleSubmit = (event) => {
     if (content === "") {
-      DisplaySnackBar(0, 'Please enter something to generate a link')
+      DisplaySnackBar(2, "Please enter something to generate a link");
       return;
     }
     event.preventDefault();
@@ -61,10 +61,13 @@ function FileCreate() {
         console.log(res);
         // setSharedLink(`http://localhost:3000/download/text/${uuid}`);
         setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
-        DisplaySnackBar(1, 'Link Generated Successfully');
+        DisplaySnackBar(1, "Link Generated Successfully");
       })
       .catch((err) => {
-        DisplaySnackBar(0, 'Oops, something went wrong. Please try again later');
+        DisplaySnackBar(
+          0,
+          "Oops, something went wrong. Please try again later"
+        );
       });
 
     setContent("");
@@ -74,7 +77,7 @@ function FileCreate() {
 
   const DisplaySnackBar = (saverity, message) => {
     setSnackbar({ saverity, message, date: Date.now() });
-  }
+  };
 
   const handleExpirationTimeChange = (event) => {
     setExpirationDate(event.target.value);
@@ -96,21 +99,25 @@ function FileCreate() {
       setShowToolTip(false);
     }, 2000);
     navigator.clipboard.writeText(sharedLink);
-  }
+  };
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: 'TempVault',
-        url: sharedLink
-      })
+        title: "TempVault",
+        url: sharedLink,
+      });
     }
-  }
-
-
+  };
 
   return (
     <>
-      {snackbar && <Snackbar key={snackbar.date} message={snackbar.message} snackColor={snackbar.saverity} />}
+      {snackbar && (
+        <Snackbar
+          key={snackbar.date}
+          message={snackbar.message}
+          snackColor={snackbar.saverity}
+        />
+      )}
       <header className="header">
         <div className="header_content">
           <Link to="/">
@@ -128,8 +135,11 @@ function FileCreate() {
             <li>Set the expiration time for the link.</li>
             <li>Click the "Generate Link" button.</li>
             <li>
-              View Once check limits the link to be opened only one time by the
-              receiver.
+              <span className="viewonceinfo">
+                {" "}
+                View Once check limits the link to be opened only one time by
+                the receiver or sender.
+              </span>
             </li>
             <li>Share the link with others.</li>
             <li>
@@ -218,7 +228,7 @@ function FileCreate() {
                             marginLeft: "10px",
                           }}
                         >
-                          tempvault.netlify.app/download/...
+                          {sharedLink}
                         </span>
                       </a>
                     </p>
@@ -249,6 +259,12 @@ function FileCreate() {
                 </div>
               )}
             </div>
+          </div>
+        </div>
+        <div className="column3">
+          <div className="numberoflinksmain">
+            {count && <span className="numberoflinks">{count}</span>} links
+            generated and counting.
           </div>
         </div>
       </div>
