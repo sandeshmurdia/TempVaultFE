@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import "./ViewOnceHeader.css";
 
 const ViewOnceHeader = () => {
@@ -11,7 +11,7 @@ const ViewOnceHeader = () => {
     return (
         <>
             {isVisible && <div className="warning-viewonce">
-                <p>This is a viewonce link, you can only view it once</p>
+                <p>This is a <span className='view-once-bold'> view once </span> link, you can only view it once</p>
                 <button onClick={hideHeader}>Close</button>
             </div>
             }

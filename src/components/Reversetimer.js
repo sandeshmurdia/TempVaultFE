@@ -17,9 +17,23 @@ export function ReverseTimer({ milliseconds }) {
   const minutes = Math.floor((remainingTime % 3600000) / 60000);
   const seconds = Math.floor((remainingTime % 60000) / 1000);
   const timeStr = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  const progress = (remainingTime / milliseconds) * 100;
+
+  
+
+  const progressBarStyles = {
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    height: '5px',
+    background: 'linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%)',
+    width: `${progress}%`,
+    transition: 'width 0.5s ease-in-out',
+  };
 
   return (
-    <div>
+    <div>      
+      <div className="progress-bar" style={progressBarStyles}></div>
       {remainingTime > 0 ? `: ${timeStr}` : ': 00:00:00'}
     </div>
   );
