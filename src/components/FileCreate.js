@@ -10,6 +10,7 @@ import copyIcon from "./svg/copy3.png";
 import shareIcon from "./svg/share.svg";
 import Tooltip from "@mui/material/Tooltip";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
+import CircularLoader from "./loader/CircularLoader";
 
 function FileCreate() {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -18,6 +19,10 @@ function FileCreate() {
   const [viewOnce, setViewOnce] = useState(false);
   const [content, setContent] = useState("");
   const [count, setCount] = useState();
+  const [loading, setLoading] = useState(false);
+  const [snackbar, setSnackbar] = useState();
+
+
   const url = "https://tempvault-services.vercel.app/apiservices/insert";
   const counturl =
     "https://tempvault-services.vercel.app/apiservices/get-count";
@@ -41,6 +46,7 @@ function FileCreate() {
       DisplaySnackBar(2, "Please enter something to generate a link");
       return;
     }
+    setLoading(true);
     event.preventDefault();
     const uuid =
       Math.random().toString(36).substring(2, 32) +
@@ -59,21 +65,18 @@ function FileCreate() {
       .post(url, data)
       .then((res) => {
         console.log(res);
-        // setSharedLink(`http://localhost:3000/download/text/${uuid}`);
-        setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
-        DisplaySnackBar(1, "Link Generated Successfully");
+        setSharedLink(`http://localhost:3000/download/text/${uuid}`);
+        // setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
+        DisplaySnackBar(1, 'Link Generated Successfully');
+        setLoading(false)
       })
       .catch((err) => {
-        DisplaySnackBar(
-          0,
-          "Oops, something went wrong. Please try again later"
-        );
+        setLoading(false)
+        DisplaySnackBar(0, 'Oops, something went wrong. Please try again later');
       });
-
     setContent("");
   };
 
-  const [snackbar, setSnackbar] = useState();
 
   const DisplaySnackBar = (saverity, message) => {
     setSnackbar({ saverity, message, date: Date.now() });
@@ -103,9 +106,11 @@ function FileCreate() {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: "TempVault",
-        url: sharedLink,
-      });
+        title: 'TempVault',
+        url: sharedLink
+      }).catch(err =>{
+        DisplaySnackBar(0,'Not supported in your browser')
+      })
     }
   };
 
@@ -210,13 +215,17 @@ function FileCreate() {
                   ></input>
                 </div>
               </div>
-              <button
-                onClick={handleSubmit}
-                type="submit"
-                className="generate-button"
-              >
-                Generate Link
-              </button>
+              <div className="generate-button-container">
+                <button
+                  onClick={handleSubmit}
+                  type="submit"
+                  className="generate-button"
+                >
+                  Generate Link
+                </button>
+                {console.log(loading)}
+                {loading && <CircularLoader />}
+              </div>
               {sharedLink && (
                 <div className="link-container">
                   <div className="link-child">
@@ -234,7 +243,7 @@ function FileCreate() {
                     </p>
                     <div className="util-button-container">
                       <div className="copy-button-div" onClick={handleShare}>
-                        <img className="copy-icon" src={shareIcon} />
+                        <img className="share-icon" src={shareIcon} />
                       </div>
                       <ClickAwayListener onClickAway={handleTooltipClose}>
                         <Tooltip

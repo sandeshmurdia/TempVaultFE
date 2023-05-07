@@ -4,13 +4,15 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import "./Retrieve.css";
 import { ReverseTimer } from "./Reversetimer";
+import ViewOnceHeader from './viewonce/viewOnceHeader';
 const Retrieve = () => {
   const { id } = useParams();
   const [data, setData] = useState();
   const url = `https://tempvault-services.vercel.app/apiservices/get/${id}`;
   const [expired, setExpired] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [remainingtime, setRemainingtime]= useState();
+  const [remainingtime, setRemainingtime] = useState();
+  const [viewOnce, setViewOnce] = useState(false);
 
   useEffect(() => {
     getData();
@@ -22,12 +24,9 @@ const Retrieve = () => {
       .get(url)
       .then((res) => {
         console.log(res.data.expired)
-         setRemainingtime(res.data.expirationTime)
-        setData(res.data.data);
-        if (res.data.expired) {
-          setExpired(true);
-        }else setExpired(false)
-
+        setRemainingtime(res.data.expirationTime)
+        setViewOnce(res.data.viewOnce);
+        res.data.expired ? setExpired(true) : setExpired(false)
         setData(res.data.data);
       })
       .catch((error) => console.log(error));
@@ -46,33 +45,37 @@ const Retrieve = () => {
             <div className="timeleft">
               Time Left <ReverseTimer milliseconds={remainingtime - Date.now()} />
             </div>
-          )}        </div>
+          )}
+        </div>
       </header>
       <div className="container-ret">
         <div className="col1">
           {loading ? (
             <div>{loading && <span>Loading...</span>}</div>
           ) : (
-            <div className="text-view">
-              {expired ? (
-                <p className="linkexp expiredlink">Link is expired!</p>
-              ) : (
-                <p className="linkexp"><div className="dataprint" dangerouslySetInnerHTML={{ __html: data }} /></p>
-              )}
-            </div>
+            <>
+              {viewOnce && <ViewOnceHeader />}
+              <div className="text-view">
+
+                {expired ? (
+                  <p className="linkexp expiredlink">Link is expired!</p>
+                ) : (
+                  <p className="linkexp"><div className="dataprint" dangerouslySetInnerHTML={{ __html: data }} /></p>
+                )}
+              </div>
+            </>
           )}
         </div>
         <div className="col2">
-        Start sharing your data securely and efficiently with TempVault.
+          Start sharing your data securely and efficiently with TempVault.
           <Link to="/senddata">
             <span className="try-it"> Try it now!</span>
           </Link>
           <br></br><br></br>
           <p className="yourdata">Your data is encrypted using advanced encryption standards and stored
-          securely on our server. We take your privacy and security seriously
-          and ensure that your data is protected at all times. </p>
+            securely on our server. We take your privacy and security seriously
+            and ensure that your data is protected at all times. </p>
         </div>
-      
       </div>
     </>
   );
