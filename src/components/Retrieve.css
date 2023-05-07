@@ -125,10 +125,9 @@ body {
     overflow-y: auto;
     overflow-x: auto;
   }
-  .beta , .betabox{
-    zoom: 0.4;
-    font-weight: 400;
-    
+
+      .beta{
+        font-size: 6px;
       }
    .betabox{
     margin-top: 4px !important;
