@@ -43,13 +43,19 @@ const Retrieve = () => {
     setTimeout(() => {
       setShowToolTip(false);
     }, 2000);
-    navigator.clipboard.writeText(data);
+    console.log(typeof data);
+    navigator.clipboard.writeText(extractContent(data));
   };
 
   const handleTooltipClose = () => {
     setShowToolTip(false);
   };
 
+  const extractContent = (html) => {
+    return new DOMParser()
+        .parseFromString(html, "text/html")
+        .documentElement.textContent;
+}
 
   return (
     <>
