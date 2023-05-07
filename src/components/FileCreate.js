@@ -5,11 +5,12 @@ import "./FileCreate.css";
 import { Link } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import Snackbar, { snackbarColor } from "./Snackbar/Snackbar.js";
+import Snackbar, { snackbarColor } from "./snackbar/Snackbar.js";
 import copyIcon from './svg/copy2.png'
 import shareIcon from './svg/share.png'
 import Tooltip from '@mui/material/Tooltip';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
+import CircularLoader from "./loader/CircularLoader";
 
 function FileCreate() {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -18,6 +19,10 @@ function FileCreate() {
   const [viewOnce, setViewOnce] = useState(false);
   const [content, setContent] = useState("");
   const [count, setCount] = useState();
+  const [loading, setLoading] = useState(false);
+  const [snackbar, setSnackbar] = useState();
+
+
   const url = "https://tempvault-services.vercel.app/apiservices/insert";
   const counturl =
     "https://tempvault-services.vercel.app/apiservices/get-count";
@@ -41,6 +46,7 @@ function FileCreate() {
       DisplaySnackBar(0, 'Please enter something to generate a link')
       return;
     }
+    setLoading(true);
     event.preventDefault();
     const uuid =
       Math.random().toString(36).substring(2, 32) +
@@ -62,15 +68,15 @@ function FileCreate() {
         setSharedLink(`http://localhost:3000/download/text/${uuid}`);
         // setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
         DisplaySnackBar(1, 'Link Generated Successfully');
+        setLoading(false)
       })
       .catch((err) => {
+        setLoading(false)
         DisplaySnackBar(0, 'Oops, something went wrong. Please try again later');
       });
-
     setContent("");
   };
 
-  const [snackbar, setSnackbar] = useState();
 
   const DisplaySnackBar = (saverity, message) => {
     setSnackbar({ saverity, message, date: Date.now() });
@@ -200,13 +206,17 @@ function FileCreate() {
                   ></input>
                 </div>
               </div>
-              <button
-                onClick={handleSubmit}
-                type="submit"
-                className="generate-button"
-              >
-                Generate Link
-              </button>
+              <div className="generate-button-container">
+                <button
+                  onClick={handleSubmit}
+                  type="submit"
+                  className="generate-button"
+                >
+                  Generate Link
+                </button>
+                {console.log(loading)}
+                {loading && <CircularLoader />}
+              </div>
               {sharedLink && (
                 <div className="link-container">
                   <div className="link-child">
