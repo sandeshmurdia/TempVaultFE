@@ -11,7 +11,24 @@ body {
 .share-link {
   max-width: 300px;
 }
+.beta{
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #fff;
+  -webkit-text-fill-color: white;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
 
+.betabox{
+  border: 1px solid white ;
+  margin-left: 10px;
+  border-radius: 5px;
+  margin-top: 8px;
+}
 .expiredlink{
   text-align: center;
   margin-left: -30px;
@@ -107,6 +124,10 @@ body {
     height: 400px;
     overflow-y: auto;
     overflow-x: auto;
+  }
+  .beta , .betabox{
+    zoom: 0.8;
+    font-weight: 400;
   }
 
   .linkexp{

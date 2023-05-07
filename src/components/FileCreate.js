@@ -127,7 +127,7 @@ function FileCreate() {
         <div className="header_content">
           <Link to="/">
             <a className="logo" id="logo">
-              TempVault
+              TempVault <span> <div className="betabox"><p className="beta">BETA</p></div></span>
             </a>
           </Link>
         </div>

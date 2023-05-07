@@ -36,7 +36,7 @@ function Mainpage() {
       <header className="header">
         <div className="header_content">
           <a href="#home" className="logo" onClick={handleLinkClick}>
-            TempVault
+            TempVault <span> <div className="betabox"><p className="beta">BETA</p></div></span>
           </a>
           <nav className={isNavOpen ? "nav nav--open" : "nav"}>
             <ul className="nav_list">

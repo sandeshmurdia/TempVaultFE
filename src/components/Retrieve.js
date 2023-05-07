@@ -39,7 +39,7 @@ const Retrieve = () => {
       <header className="header">
         <div className="header_content">
           <Link to="/" className="logo" id="logo">
-            TempVault
+            TempVault <span> <div className="betabox"><p className="beta">BETA</p></div></span>
           </Link>
           {remainingtime && (
             <div className="timeleft">
