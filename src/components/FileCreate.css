@@ -9,7 +9,6 @@ body {
   margin-top: 100px;
 }
 
-
 .link {
   font-family: "Poppins";
   font-style: normal;
@@ -119,10 +118,12 @@ body {
   margin-right: 20px;
   width: 50vw;
 }
-.column3{
-  margin-top: -30px;
+@media screen and (min-width: 768px) {
+.column3 {
+  position: absolute;
+  bottom: 50px;
 }
-
+}
 @media screen and (max-width: 768px) {
   .quill {
     width: 88vw;
@@ -148,7 +149,7 @@ body {
   cursor: pointer;
   letter-spacing: 2px;
 
-transition: transform 0.5s;
+  transition: transform 0.5s;
 }
 
 @media (min-width: 1100px) {
@@ -257,7 +258,7 @@ transition: transform 0.5s;
   }
 
   .numberoflinksmain {
-    font-size: 18px;
+    font-size: 16px;
     margin-left: 30px !important;
   }
 }
@@ -424,7 +425,11 @@ transition: transform 0.5s;
   justify-content: center;
   width: 96.5%;
   border: solid 1px transparent;
-  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%);
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
@@ -457,7 +462,7 @@ transition: transform 0.5s;
 
 .share-icon:hover {
   box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-  transform: translateY(-0.10em);
+  transform: translateY(-0.1em);
 }
 
 .copy-button-div {
