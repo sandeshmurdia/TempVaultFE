@@ -59,8 +59,8 @@ function FileCreate() {
       .post(url, data)
       .then((res) => {
         console.log(res);
-        // setSharedLink(`http://localhost:3000/download/text/${uuid}`);
-        setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
+        setSharedLink(`http://localhost:3000/download/text/${uuid}`);
+        // setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
         DisplaySnackBar(1, 'Link Generated Successfully');
       })
       .catch((err) => {
@@ -224,7 +224,7 @@ function FileCreate() {
                     </p>
                     <div className="util-button-container">
                       <div className="copy-button-div" onClick={handleShare}>
-                        <img className="copy-icon" src={shareIcon} />
+                        <img className="share-icon" src={shareIcon} />
                       </div>
                       <ClickAwayListener onClickAway={handleTooltipClose}>
                         <Tooltip
