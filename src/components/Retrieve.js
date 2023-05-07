@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import "./Retrieve.css";
 import { ReverseTimer } from "./Reversetimer";
-import ViewOnceHeader from './viewonce/viewOnceHeader';
+import ViewOnceHeader from './ViewOnce/viewOnceHeader';
 const Retrieve = () => {
   const { id } = useParams();
   const [data, setData] = useState();
