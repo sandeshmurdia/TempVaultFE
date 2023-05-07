@@ -5,6 +5,10 @@ import axios from "axios";
 import "./Retrieve.css";
 import { ReverseTimer } from "./Reversetimer";
 import ViewOnceHeader from './ViewOnce/viewOnceHeader';
+import copyIcon from "./svg/copy3.png";
+import Tooltip from "@mui/material/Tooltip";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+
 const Retrieve = () => {
   const { id } = useParams();
   const [data, setData] = useState();
@@ -13,6 +17,7 @@ const Retrieve = () => {
   const [loading, setLoading] = useState(true);
   const [remainingtime, setRemainingtime] = useState();
   const [viewOnce, setViewOnce] = useState(false);
+  const [showToolTip, setShowToolTip] = React.useState(false);
 
   useEffect(() => {
     getData();
@@ -31,6 +36,18 @@ const Retrieve = () => {
       })
       .catch((error) => console.log(error));
     setLoading(false);
+  };
+
+  const handleCopy = () => {
+    setShowToolTip(true);
+    setTimeout(() => {
+      setShowToolTip(false);
+    }, 2000);
+    navigator.clipboard.writeText(data);
+  };
+
+  const handleTooltipClose = () => {
+    setShowToolTip(false);
   };
 
 
@@ -56,7 +73,24 @@ const Retrieve = () => {
             <>
               {viewOnce && <ViewOnceHeader />}
               <div className="text-view">
-
+                <ClickAwayListener onClickAway={handleTooltipClose}>
+                  <Tooltip
+                    PopperProps={{
+                      disablePortal: true,
+                    }}
+                    onClose={handleTooltipClose}
+                    open={showToolTip}
+                    disableFocusListener
+                    disableHoverListener
+                    disableTouchListener
+                    title="Copied!"
+                    placement="right-start"
+                  >
+                    <div className="copy-button-div-retrieve-box" onClick={handleCopy}>
+                      <img className="copy-icon" src={copyIcon} />
+                    </div>
+                  </Tooltip>
+                </ClickAwayListener>
                 {expired ? (
                   <p className="linkexp expiredlink">Link is expired!</p>
                 ) : (

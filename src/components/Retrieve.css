@@ -116,10 +116,12 @@ body {
   overflow-x: auto;
   border-radius: 8px;
   border: 1px solid white;
+  position: relative;
 }
 
 @media screen and (max-width: 1100px) {
   .text-view {
+    position: relative;
     width: 92vw;
     height: 400px;
     overflow-y: auto;
@@ -323,5 +325,8 @@ body {
     font-size: 36px !important;
   }
 }
-.toast{
+.copy-button-div-retrieve-box{
+  margin: 8px 8px 0px auto;
+  position: absolute;
+  right: 0;
 }

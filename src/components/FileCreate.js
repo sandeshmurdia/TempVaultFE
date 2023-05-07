@@ -21,7 +21,7 @@ function FileCreate() {
   const [count, setCount] = useState();
   const [loading, setLoading] = useState(false);
   const [snackbar, setSnackbar] = useState();
-
+  const [showToolTip, setShowToolTip] = React.useState(false);
 
   const url = "https://tempvault-services.vercel.app/apiservices/insert";
   const counturl =
@@ -65,8 +65,8 @@ function FileCreate() {
       .post(url, data)
       .then((res) => {
         console.log(res);
-        // setSharedLink(`http://localhost:3000/${uuid}`);
-        setSharedLink(`http://tempvault.netlify.app/${uuid}`);
+        setSharedLink(`http://localhost:3000/${uuid}`);
+        // setSharedLink(`https://tempvault.netlify.app/${uuid}`);
         DisplaySnackBar(1, 'Link Generated Successfully');
         setLoading(false)
       })
@@ -90,7 +90,6 @@ function FileCreate() {
     setContent(value);
   };
 
-  const [showToolTip, setShowToolTip] = React.useState(false);
 
   const handleTooltipClose = () => {
     setShowToolTip(false);
