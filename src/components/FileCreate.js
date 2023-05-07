@@ -163,7 +163,7 @@ function FileCreate() {
                     value={expirationDate}
                     onChange={handleExpirationTimeChange}
                   >
-                    <option className="time-total" value={1}>
+                    <option className="time-total" value={0.2}>
                       1 min
                     </option>
                     <option className="time-total" value={5}>
@@ -269,8 +269,12 @@ function FileCreate() {
         </div>
         <div className="column3">
           <div className="numberoflinksmain">
-            {count && <span className="numberoflinks">{count}</span>} links
+            {count ?<span className="numberoflinks">         
+            {count} </span> : (<span className="numberoflinks">000 </span>)} 
+              links
             generated and counting.
+  
+
           </div>
         </div>
       </div>

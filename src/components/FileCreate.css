@@ -494,3 +494,7 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.ql-link{
+  display: none !important;
+}

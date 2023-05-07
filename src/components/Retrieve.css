@@ -325,7 +325,15 @@ body {
   }
 }
 .copy-button-div-retrieve-box{
-  margin: 8px 8px 0px auto;
+  margin: 25px 25px 0px auto;
   position: absolute;
   right: 0;
+}
+
+@media screen and (max-width: 1100px){
+  .copy-button-div-retrieve-box{
+    margin: 20px 20px 0px auto;
+    position: absolute;
+    right: 0;
+  }
 }

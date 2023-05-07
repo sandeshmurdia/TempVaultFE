@@ -4,14 +4,14 @@ export function ReverseTimer({ milliseconds }) {
   const [remainingTime, setRemainingTime] = useState(milliseconds);
 
   useEffect(() => {
-    let interval = null;
+    let interval = progress;
     if (remainingTime > 0) {
       interval = setInterval(() => {
-        setRemainingTime(prevRemainingTime => prevRemainingTime - 1000);
-      }, 1000);
+        setRemainingTime(prevRemainingTime => prevRemainingTime - 100);
+      }, 100);
     }
     return () => clearInterval(interval);
-  }, [remainingTime]);
+  }, []);
 
   const hours = Math.floor(remainingTime / 3600000);
   const minutes = Math.floor((remainingTime % 3600000) / 60000);
@@ -28,12 +28,12 @@ export function ReverseTimer({ milliseconds }) {
     height: '5px',
     background: 'linear-gradient(87.96deg, #9f25ff 6.22%, #2548ff 104.21%)',
     width: `${progress}%`,
-    transition: 'width 0.5s ease-in-out',
+    transition: 'width 0.5s linear',
   };
 
   return (
     <div>      
-      <div className="progress-bar" style={progressBarStyles}></div>
+      {/* <div className="progress-bar" style={progressBarStyles}></div> */}
       {remainingTime > 0 ? `: ${timeStr}` : ': 00:00:00'}
     </div>
   );
