@@ -126,10 +126,13 @@ body {
     overflow-x: auto;
   }
   .beta , .betabox{
-    zoom: 0.8;
+    zoom: 0.6;
     font-weight: 400;
-  }
-
+    
+      }
+   .betabox{
+    margin-top: 15px;
+   }
   .linkexp{
     font-size: 20px;
   }
