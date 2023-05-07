@@ -11,7 +11,7 @@ body {
 .share-link {
   max-width: 300px;
 }
-.beta{
+.beta {
   font-size: 10px;
   letter-spacing: 1px;
   text-align: center;
@@ -23,16 +23,15 @@ body {
   margin-bottom: 2px;
 }
 
-.betabox{
-  border: 1px solid white ;
+.betabox {
+  border: 1px solid white;
   margin-left: 10px;
   border-radius: 5px;
   margin-top: 8px;
 }
-.expiredlink{
+.expiredlink {
   text-align: center;
   margin-left: -30px;
-
 }
 .try-it {
   font-family: "Poppins";
@@ -68,7 +67,7 @@ body {
   padding-bottom: 50px;
 }
 
-.yourdata{
+.yourdata {
   font-weight: 400;
 }
 .col1,
@@ -83,7 +82,7 @@ body {
   margin-top: 10%;
 }
 
-.linkexp{
+.linkexp {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
@@ -125,26 +124,25 @@ body {
     overflow-y: auto;
     overflow-x: auto;
   }
-
-      .beta{
-        font-size: 6px;
-        margin-top: 0.5px;
-        margin-bottom: 0.5px;
-        margin-left: 2px;
-        margin-right: 2px;
-      }
-   .betabox{
+  .beta {
+    font-size: 6px;
+    margin-top: 0.5px;
+    margin-bottom: 0.5px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  .betabox {
     margin-top: 4px !important;
-   }
-  .linkexp{
+  }
+  .linkexp {
     font-size: 20px;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .text-view{
+  .text-view {
     width: 90vw;
-  }  
+  }
 }
 
 .timeleft {
@@ -159,7 +157,6 @@ body {
   color: #fff;
   margin-right: 50px;
 }
-
 
 @media screen and (max-width: 1100px) {
   .col1,
@@ -178,12 +175,11 @@ body {
     padding: auto;
   }
 
-  .col2{
+  .col2 {
     height: auto;
     margin-bottom: 50px;
     text-align: center;
   }
-
 
   .col3 {
     padding: 30px;
@@ -194,10 +190,9 @@ body {
     font-size: 16px;
   }
 
-  .try-it{
+  .try-it {
     font-size: 16px;
   }
-
 
   .col2,
   .timeleft {
@@ -224,9 +219,9 @@ body {
     font-size: 12px;
   }
 
-.try-it{
-  font-size: 12px;
-}
+  .try-it {
+    font-size: 12px;
+  }
   .col2,
   .timeleft {
     font-size: 12px;
@@ -234,8 +229,8 @@ body {
   .timeleft {
     margin-right: 20px;
   }
-  
-  .linkexp{
+
+  .linkexp {
     font-size: 16px;
   }
 }
@@ -327,5 +322,5 @@ body {
     font-size: 36px !important;
   }
 }
-.toast{
+.toast {
 }
