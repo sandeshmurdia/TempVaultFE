@@ -237,7 +237,7 @@ function FileCreate() {
                             marginLeft: "10px",
                           }}
                         >
-                          {sharedLink}
+                          tempvault.netlify.app/
                         </span>
                       </a>
                     </p>
