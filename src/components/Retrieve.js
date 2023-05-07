@@ -68,7 +68,7 @@ const Retrieve = () => {
         </div>
         <div className="col2">
           Start sharing your data securely and efficiently with TempVault.
-          <Link to="/senddata">
+          <Link to="/app">
             <span className="try-it"> Try it now!</span>
           </Link>
           <br></br><br></br>

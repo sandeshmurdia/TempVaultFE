@@ -9,9 +9,9 @@ const App = () => {
       <Router>
         <div className="App">
           <Routes>
-            <Route exact path='/senddata' element={< FileCreate />}></Route>
+            <Route exact path='/app' element={< FileCreate />}></Route>
             <Route exact path='/' element={<Mainpage/>}></Route>
-            <Route exact path='/download/text/:id' element={< Retrieve />}></Route>
+            <Route exact path='/:id' element={< Retrieve />}></Route>
           </Routes>
         </div>
       </Router>

@@ -65,8 +65,8 @@ function FileCreate() {
       .post(url, data)
       .then((res) => {
         console.log(res);
-        // setSharedLink(`http://localhost:3000/download/text/${uuid}`);
-        setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
+        // setSharedLink(`http://localhost:3000/${uuid}`);
+        setSharedLink(`http://tempvault.netlify.app/${uuid}`);
         DisplaySnackBar(1, 'Link Generated Successfully');
         setLoading(false)
       })
