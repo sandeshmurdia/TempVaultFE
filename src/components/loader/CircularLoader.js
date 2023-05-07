@@ -7,7 +7,7 @@ const CircularLoader = () => {
         <div>
             {console.log('Loading')}
             <Box sx={{marginLeft:'10px'}}>
-                <CircularProgress style={{color:'#2548ff'}} size={30}/>
+                <CircularProgress style={{color:'#2548ff'}} size={22}/>
             </Box>
         </div>
     )

@@ -108,6 +108,8 @@ function FileCreate() {
       navigator.share({
         title: 'TempVault',
         url: sharedLink
+      }).catch(err =>{
+        DisplaySnackBar(0,'Not supported in your browser')
       })
     }
   }
