@@ -5,8 +5,13 @@ import "./FileCreate.css";
 import { Link } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Snackbar, { snackbarColor } from "./Snackbar/Snackbar.js";
+import copyIcon from "./svg/copy3.png";
+import shareIcon from "./svg/share.svg";
+import Tooltip from "@mui/material/Tooltip";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import CircularLoader from "./loader/CircularLoader";
+
 function FileCreate() {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
   const [expirationDate, setExpirationDate] = useState(5); // 5 mins
@@ -14,6 +19,10 @@ function FileCreate() {
   const [viewOnce, setViewOnce] = useState(false);
   const [content, setContent] = useState("");
   const [count, setCount] = useState();
+  const [loading, setLoading] = useState(false);
+  const [snackbar, setSnackbar] = useState();
+
+
   const url = "https://tempvault-services.vercel.app/apiservices/insert";
   const counturl =
     "https://tempvault-services.vercel.app/apiservices/get-count";
@@ -32,11 +41,12 @@ function FileCreate() {
       .catch((error) => console.log(error));
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     if (content === "") {
-      alert("nothing");
+      DisplaySnackBar(2, "Please enter something to generate a link");
       return;
     }
+    setLoading(true);
     event.preventDefault();
     const uuid =
       Math.random().toString(36).substring(2, 32) +
@@ -50,39 +60,26 @@ function FileCreate() {
       expirationTime: expirationTime,
       viewOnce: viewOnce,
     };
-    await axios
+
+    axios
       .post(url, data)
       .then((res) => {
         console.log(res);
-        console.log("Success");
-        toast.success("Link Generated successfully.", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-        // setSharedLink(`http://localhost:3000/download/text/${uuid}`);
-        setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
-        navigator.clipboard.writeText(sharedLink);
-        setContent("");
+        setSharedLink(`http://localhost:3000/download/text/${uuid}`);
+        // setSharedLink(`http://tempvault.netlify.app/download/text/${uuid}`);
+        DisplaySnackBar(1, 'Link Generated Successfully');
+        setLoading(false)
       })
       .catch((err) => {
-        toast.error('Failed try again!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          });
-        console.log("Failed ", err);
+        setLoading(false)
+        DisplaySnackBar(0, 'Oops, something went wrong. Please try again later');
       });
+    setContent("");
+  };
+
+
+  const DisplaySnackBar = (saverity, message) => {
+    setSnackbar({ saverity, message, date: Date.now() });
   };
 
   const handleExpirationTimeChange = (event) => {
@@ -93,21 +90,39 @@ function FileCreate() {
     setContent(value);
   };
 
+  const [showToolTip, setShowToolTip] = React.useState(false);
+
+  const handleTooltipClose = () => {
+    setShowToolTip(false);
+  };
+
+  const handleCopy = () => {
+    setShowToolTip(true);
+    setTimeout(() => {
+      setShowToolTip(false);
+    }, 2000);
+    navigator.clipboard.writeText(sharedLink);
+  };
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'TempVault',
+        url: sharedLink
+      }).catch(err =>{
+        DisplaySnackBar(0,'Not supported in your browser')
+      })
+    }
+  };
+
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        className='toast'
-        autoClose={5000}
-        limit={1}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
+      {snackbar && (
+        <Snackbar
+          key={snackbar.date}
+          message={snackbar.message}
+          snackColor={snackbar.saverity}
+        />
+      )}
       <header className="header">
         <div className="header_content">
           <Link to="/">
@@ -125,8 +140,11 @@ function FileCreate() {
             <li>Set the expiration time for the link.</li>
             <li>Click the "Generate Link" button.</li>
             <li>
-              View Once check limits the link to be opened only one time by the
-              receiver.
+              <span className="viewonceinfo">
+                {" "}
+                View Once check limits the link to be opened only one time by
+                the receiver or sender.
+              </span>
             </li>
             <li>Share the link with others.</li>
             <li>
@@ -197,32 +215,65 @@ function FileCreate() {
                   ></input>
                 </div>
               </div>
-              <button
-                onClick={handleSubmit}
-                type="submit"
-                className="generate-button"
-              >
-                Generate Link
-              </button>
+              <div className="generate-button-container">
+                <button
+                  onClick={handleSubmit}
+                  type="submit"
+                  className="generate-button"
+                >
+                  Generate Link
+                </button>
+                {console.log(loading)}
+                {loading && <CircularLoader />}
+              </div>
               {sharedLink && (
-                <div>
-                  <p className="link">
-                    <a href={sharedLink} className="expiration share-link">
-                      Your Link:
-                      <span
-                        style={{
-                          fontWeight: 300,
-                          color: "#3366CC",
-                          marginLeft: "10px",
-                        }}
-                      >
-                        tempvault.netlify.app/download/text/...
-                      </span>
-                    </a>
-                  </p>
+                <div className="link-container">
+                  <div className="link-child">
+                    <p className="link">
+                      <a href={sharedLink} className="expiration share-link">
+                        <span
+                          style={{
+                            fontWeight: 300,
+                            marginLeft: "10px",
+                          }}
+                        >
+                          {sharedLink}
+                        </span>
+                      </a>
+                    </p>
+                    <div className="util-button-container">
+                      <div className="copy-button-div" onClick={handleShare}>
+                        <img className="share-icon" src={shareIcon} />
+                      </div>
+                      <ClickAwayListener onClickAway={handleTooltipClose}>
+                        <Tooltip
+                          PopperProps={{
+                            disablePortal: true,
+                          }}
+                          onClose={handleTooltipClose}
+                          open={showToolTip}
+                          disableFocusListener
+                          disableHoverListener
+                          disableTouchListener
+                          title="Copied!"
+                          placement="right-start"
+                        >
+                          <div className="copy-button-div" onClick={handleCopy}>
+                            <img className="copy-icon" src={copyIcon} />
+                          </div>
+                        </Tooltip>
+                      </ClickAwayListener>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
+          </div>
+        </div>
+        <div className="column3">
+          <div className="numberoflinksmain">
+            {count && <span className="numberoflinks">{count}</span>} links
+            generated and counting.
           </div>
         </div>
       </div>

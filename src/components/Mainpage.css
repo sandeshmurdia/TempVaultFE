@@ -184,7 +184,7 @@ a {
   transition: transform 0.5s;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1100px) {
   .getstarted-button:hover {
     transform: scale(1.08);
     transition: transform 0.2s;
