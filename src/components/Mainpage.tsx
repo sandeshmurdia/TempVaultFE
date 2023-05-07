@@ -96,10 +96,10 @@ function Mainpage() {
         {/* about */}
         <section id="about"></section>
         <div className="about-div about">
-          <h1 className="about-heading">
+          <h2 className="about-heading">
             Securely store and share your temporary files with
             <span className="about-tempvault"> TempVault.</span>
-          </h1>
+          </h2>
           <p className="about-sub">
             TempVault is a secure and simple way to share text data with others.
             With TempVault, you can generate a temporary link that allows others
@@ -111,7 +111,7 @@ function Mainpage() {
         {/* feature */}
         <section id="features"></section>
         <div className="feature">
-          <h1 className="feature-heading">How people use it</h1>
+          <h2 className="feature-heading">How people use it</h2>
           <div className="card-container">
             <div className="card">
               <h3 className="usecase-1">Collaboration</h3>
@@ -151,7 +151,7 @@ function Mainpage() {
         {/*team */}
         <section id="contact"></section>
         <div className="contact">
-          <h1 className="feature-heading">Developed By</h1>
+          <h2 className="feature-heading">Developed By</h2>
           <div className="responsive-container-block container">
             <div className="responsive-container-block">
               <div className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container-about">
