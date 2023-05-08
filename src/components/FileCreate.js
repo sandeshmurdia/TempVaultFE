@@ -281,14 +281,11 @@ function FileCreate() {
           </div>
         </div>
         <div className="column3">
+        {count &&
           <div className="numberoflinksmain">
-            {count ? (
               <span className="numberoflinks">{count} </span>
-            ) : (
-              <span className="numberoflinks">000 </span>
-            )}
             links generated and counting.
-          </div>
+          </div>}
         </div>
       </div>
       <div ref={containerRef} />
