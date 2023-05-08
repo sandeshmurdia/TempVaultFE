@@ -160,7 +160,7 @@ function Mainpage() {
                     <img className="team-member-image" src={sandesh} />
                   </div>
                   <p className="about-name">Sandesh Murdia</p>
-                  <p className="text-blk position-about">Software Developer</p>
+                  <p className="text-blk position-about">Developer</p>
                   <p className="text-blk feature-text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
@@ -201,7 +201,7 @@ function Mainpage() {
                     <img className="team-member-image" src={chetan} />
                   </div>
                   <p className="about-name">Chetan Lohkare </p>
-                  <p className="text-blk position-about">Software Developer</p>
+                  <p className="text-blk position-about">Developer</p>
                   <p className="text-blk feature-text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
