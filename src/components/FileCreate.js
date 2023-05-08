@@ -11,6 +11,7 @@ import shareIcon from "./svg/share.svg";
 import Tooltip from "@mui/material/Tooltip";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import CircularLoader from "./loader/CircularLoader";
+import AnimatedCounter from "./AnimateCounter";
 
 function FileCreate() {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -281,13 +282,22 @@ function FileCreate() {
           </div>
         </div>
         <div className="column3">
-        {count &&
-          <div className="numberoflinksmain">
-              <span className="numberoflinks">{count} </span>
-            links generated and counting.
-          </div>}
+          {count && (
+            <div className="numberoflinksmain">
+              <span className="numberoflinks">
+                {" "}
+                <AnimatedCounter
+                  initialValue={count - 10}
+                  lastValue={count}
+                  duration={700}
+                /> 
+              </span>
+              {" "}links generated and counting.
+            </div>
+          )}
         </div>
       </div>
+      x``
       <div ref={containerRef} />
     </>
   );
