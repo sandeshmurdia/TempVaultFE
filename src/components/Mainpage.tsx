@@ -161,9 +161,10 @@ function Mainpage() {
                   </div>
                   <p className="about-name">Sandesh Murdia</p>
                   <p className="text-blk position-about">Developer</p>
-                  <p className="text-blk feature-text">
+                  {/* <p className="text-blk feature-text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
+                  </p> */}
+                  <br></br>
                   <div className="social-icons">
                     <a href="https://www.linkedin.com/in/sandeshmurdia/" target="_blank">
                       <img height={22} width={22} src={linkedin} />
@@ -202,9 +203,10 @@ function Mainpage() {
                   </div>
                   <p className="about-name">Chetan Lohkare </p>
                   <p className="text-blk position-about">Developer</p>
-                  <p className="text-blk feature-text">
+                  {/* <p className="text-blk feature-text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
+                  </p> */}
+                  <br></br>
                   <div className="social-icons">
                     <a href="https://www.linkedin.com/in/chetan-lohkare-4b3007195" target="_blank">
                       <img height={22} width={22} src={linkedin} />
