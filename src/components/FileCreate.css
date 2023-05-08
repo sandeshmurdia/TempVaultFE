@@ -498,3 +498,16 @@ body {
 .ql-link{
   display: none !important;
 }
+
+@media screen and (max-height: 700px ) {
+  .column2{
+    margin-top: -2%;
+    z-index: 1000;
+  }
+  .functioning{
+    margin-top: 10px;
+  }
+  .generate-button-container {
+    margin-top: 0px !important;
+}
+}

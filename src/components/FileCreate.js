@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CryptoJS from "crypto-js";
 import axios from "axios";
 import "./FileCreate.css";
@@ -67,16 +67,19 @@ function FileCreate() {
         console.log(res);
         // setSharedLink(`http://localhost:3000/${uuid}`);
         setSharedLink(`https://tempvault.netlify.app/${uuid}`);
-        DisplaySnackBar(1, 'Link Generated Successfully');
-        setLoading(false)
+        scrollToBottom();
+        DisplaySnackBar(1, "Link Generated Successfully");
+        setLoading(false);
       })
       .catch((err) => {
-        setLoading(false)
-        DisplaySnackBar(0, 'Oops, something went wrong. Please try again later');
+        setLoading(false);
+        DisplaySnackBar(
+          0,
+          "Oops, something went wrong. Please try again later"
+        );
       });
     setContent("");
   };
-
 
   const DisplaySnackBar = (saverity, message) => {
     setSnackbar({ saverity, message, date: Date.now() });
@@ -90,7 +93,11 @@ function FileCreate() {
     setContent(value);
   };
 
+  const containerRef = useRef(null);
 
+  function scrollToBottom() {
+    containerRef.current.scrollIntoView({ behavior: "smooth" });
+  }
   const handleTooltipClose = () => {
     setShowToolTip(false);
   };
@@ -105,9 +112,9 @@ function FileCreate() {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: 'TempVault',
-        url: sharedLink
-      })
+        title: "TempVault",
+        url: sharedLink,
+      });
     }
   };
 
@@ -124,7 +131,13 @@ function FileCreate() {
         <div className="header_content">
           <Link to="/">
             <a className="logo" id="logo">
-              TempVault <span> <div className="betabox"><p className="beta">BETA</p></div></span>
+              TempVault{" "}
+              <span>
+                {" "}
+                <div className="betabox">
+                  <p className="beta">BETA</p>
+                </div>
+              </span>
             </a>
           </Link>
         </div>
@@ -269,15 +282,16 @@ function FileCreate() {
         </div>
         <div className="column3">
           <div className="numberoflinksmain">
-            {count ?<span className="numberoflinks">         
-            {count} </span> : (<span className="numberoflinks">000 </span>)} 
-              links
-            generated and counting.
-  
-
+            {count ? (
+              <span className="numberoflinks">{count} </span>
+            ) : (
+              <span className="numberoflinks">000 </span>
+            )}
+            links generated and counting.
           </div>
         </div>
       </div>
+      <div ref={containerRef} />
     </>
   );
 }

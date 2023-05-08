@@ -33,7 +33,7 @@ export function ReverseTimer({ milliseconds }) {
 
   return (
     <div>      
-      {/* <div className="progress-bar" style={progressBarStyles}></div> */}
+      <div className="progress-bar" style={progressBarStyles}></div>
       {remainingTime > 0 ? `: ${timeStr}` : ': 00:00:00'}
     </div>
   );
