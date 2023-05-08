@@ -165,7 +165,7 @@ function FileCreate() {
         </div>
         <div className="column2">
           <div>
-            <ReactQuill value={content} onChange={handleContentChange} />
+            <ReactQuill value={content} onChange={handleContentChange} className="zipy-block"/>
             <div className="functioning">
               <div className="funct">
                 <div className="funct-1">
