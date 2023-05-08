@@ -297,8 +297,7 @@ function FileCreate() {
           )}
         </div>
       </div>
-      x``
-      <div ref={containerRef} />
+      <div ref={containerRef} className="scrollbottom"/>
     </>
   );
 }
