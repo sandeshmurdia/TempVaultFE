@@ -177,7 +177,7 @@ function FileCreate() {
                     value={expirationDate}
                     onChange={handleExpirationTimeChange}
                   >
-                    <option className="time-total" value={0.2}>
+                    <option className="time-total" value={1}>
                       1 min
                     </option>
                     <option className="time-total" value={5}>
