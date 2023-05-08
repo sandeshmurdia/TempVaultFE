@@ -499,7 +499,7 @@ body {
   display: none !important;
 }
 
-@media screen and (max-height: 700px ) {
+@media screen and (max-height: 700px ) and (min-width: 900px) {
   .column2{
     margin-top: -2%;
     z-index: 1000;
