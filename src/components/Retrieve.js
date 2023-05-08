@@ -89,7 +89,7 @@ const Retrieve = () => {
         </div>
       </header>
       <div className="container-ret">
-        <div className="col1">
+        <div className="col1 zipy-block" >
           {loading ? (
             <div>{loading && <span>Loading...</span>}</div>
           ) : (
