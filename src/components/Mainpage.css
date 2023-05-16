@@ -158,14 +158,17 @@ a {
 .sub-tempvault {
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
+  font-weight: 500;
+  font-size: 28px;
   line-height: 40px;
   margin: 0;
   align-items: center;
   text-align: center;
   letter-spacing: 1px;
-  color: #cccccc;
+  background: radial-gradient(45% 100% at 50% 50%,#fff 30%,hsla(0,0%,100%,.35) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 
@@ -276,6 +279,8 @@ a {
   align-items: center;
   text-align: center;
   letter-spacing: 1px;
+  
+  
 }
 .about-sub {
   font-family: "Poppins";
