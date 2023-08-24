@@ -227,7 +227,7 @@ function Mainpage() {
                         src={instagram}
                       />
                     </a>
-                    <a href="https://www.twitter.com" target="_blank">
+                    <a href="mailto:chetanlohkare.7@gmail.com" target="_blank">
                       <img
                         height={24}
                         width={24}
